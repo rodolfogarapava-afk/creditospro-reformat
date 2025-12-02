@@ -29,7 +29,7 @@ const MobileMenu = ({ onNavigate, onChatClick }: MobileMenuProps) => {
           <Menu className="h-6 w-6" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-[300px] p-0">
+      <SheetContent side="right" className="w-[250px] p-0">
         <div className="flex flex-col h-full">
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b">
