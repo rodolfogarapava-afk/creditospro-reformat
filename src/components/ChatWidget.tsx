@@ -205,37 +205,39 @@ const ChatWidget = () => {
           {/* Messages */}
           <ScrollArea className="flex-1 p-4" ref={scrollAreaRef}>
             <div className="space-y-4">
-              {messages.length === 1 && (
-                <div className="mb-4 grid grid-cols-2 gap-2">
-                  {quickActions.map((qa, idx) => (
-                    <Button
-                      key={idx}
-                      variant="outline"
-                      size="sm"
-                      onClick={() => handleQuickAction(qa.action)}
-                      disabled={isLoading}
-                      className="text-xs h-auto py-2 px-3 whitespace-normal text-left justify-start"
-                    >
-                      {qa.label}
-                    </Button>
-                  ))}
-                </div>
-              )}
-              
               {messages.map((msg, idx) => (
-                <div
-                  key={idx}
-                  className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
-                >
+                <div key={idx}>
                   <div
-                    className={`max-w-[80%] rounded-2xl px-4 py-2 ${
-                      msg.role === "user"
-                        ? "bg-primary text-primary-foreground"
-                        : "bg-muted"
-                    }`}
+                    className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                   >
-                    {renderMessageContent(msg.content)}
+                    <div
+                      className={`max-w-[80%] rounded-2xl px-4 py-2 ${
+                        msg.role === "user"
+                          ? "bg-primary text-primary-foreground"
+                          : "bg-muted"
+                      }`}
+                    >
+                      {renderMessageContent(msg.content)}
+                    </div>
                   </div>
+                  
+                  {/* Show quick actions after first assistant message */}
+                  {idx === 0 && msg.role === "assistant" && messages.length === 1 && (
+                    <div className="mt-4 grid grid-cols-2 gap-2">
+                      {quickActions.map((qa, qaIdx) => (
+                        <Button
+                          key={qaIdx}
+                          variant="outline"
+                          size="sm"
+                          onClick={() => handleQuickAction(qa.action)}
+                          disabled={isLoading}
+                          className="text-xs h-auto py-2 px-3 whitespace-normal text-left justify-start"
+                        >
+                          {qa.label}
+                        </Button>
+                      ))}
+                    </div>
+                  )}
                 </div>
               ))}
               {isLoading && (
