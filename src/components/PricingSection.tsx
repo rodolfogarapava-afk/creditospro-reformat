@@ -6,7 +6,7 @@ const PricingSection = () => {
   const navigate = useNavigate();
 
   return (
-    <section id="planos" className="py-20 relative scroll-mt-20">
+    <section id="planos" className="pt-12 pb-20 relative scroll-mt-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
