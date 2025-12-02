@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import AllPlansHeader from "@/components/AllPlansHeader";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ChatWidget from "@/components/ChatWidget";
+import heartIcon from "@/assets/heart-gradient.png";
 
 const AllPlans = () => {
   const navigate = useNavigate();
@@ -71,8 +72,9 @@ const AllPlans = () => {
                 <div className="flex justify-between items-start mb-3">
                   <div>
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="text-xl font-bold">
-                        ❤️ {plan.credits.toLocaleString("pt-BR")} Créditos
+                      <span className="text-xl font-bold flex items-center gap-2">
+                        <img src={heartIcon} alt="heart" className="w-5 h-5 inline-block" />
+                        {plan.credits.toLocaleString("pt-BR")} Créditos
                       </span>
                       {plan.hot && (
                         <Badge className="bg-red-500 hover:bg-red-600 text-white px-2 py-0.5 text-xs animate-pulse">
@@ -152,7 +154,8 @@ const AllPlans = () => {
                       <TableCell className="font-medium text-base md:text-lg">
                         <div className="flex flex-col gap-1">
                           <div className="flex items-center gap-2">
-                            ❤️ {plan.credits.toLocaleString("pt-BR")} Créditos
+                            <img src={heartIcon} alt="heart" className="w-5 h-5 inline-block" />
+                            {plan.credits.toLocaleString("pt-BR")} Créditos
                           </div>
                           {plan.firstPurchase && (
                             <p className="text-xs text-muted-foreground italic">
