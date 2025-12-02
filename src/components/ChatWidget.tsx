@@ -51,7 +51,7 @@ const ChatWidget = () => {
       const textWithoutMarker = content.replace("[BOTAO_WHATSAPP]", "").trim();
       return (
         <div className="space-y-3">
-          <p className="text-sm whitespace-pre-wrap">{textWithoutMarker}</p>
+          <p className="text-base whitespace-pre-wrap">{textWithoutMarker}</p>
           <Button
             onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`, "_blank")}
             className="w-full bg-[#25D366] hover:bg-[#20BA5A] text-white font-semibold py-3 rounded-xl shadow-md"
@@ -61,7 +61,7 @@ const ChatWidget = () => {
         </div>
       );
     }
-    return <p className="text-sm whitespace-pre-wrap">{content}</p>;
+    return <p className="text-base whitespace-pre-wrap">{content}</p>;
   };
 
   const streamChat = async (userMessage: Message) => {
