@@ -91,7 +91,7 @@ const PricingCard = ({
 
         <div>
           <p className="text-xs text-muted-foreground mb-1 flex items-center gap-1">
-            Preço Créditos Pro <img src={heartIcon} alt="heart" className="w-4 h-4 inline-block" />
+            Preço Créditos Pro 🎯
           </p>
           <p className="text-4xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">
             R$ {proPrice.toFixed(2).replace(".", ",")}
