@@ -25,8 +25,8 @@ const MobileMenu = ({ onNavigate, onChatClick }: MobileMenuProps) => {
   return (
     <Sheet open={open} onOpenChange={setOpen}>
       <SheetTrigger asChild className="md:hidden">
-        <Button variant="ghost" size="icon" className="md:hidden">
-          <Menu className="h-6 w-6" />
+        <Button variant="ghost" size="icon" className="md:hidden h-8 w-8">
+          <Menu className="h-4 w-4" />
         </Button>
       </SheetTrigger>
       <SheetContent side="right" className="w-[280px] p-0">
