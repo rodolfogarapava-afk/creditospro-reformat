@@ -4,6 +4,7 @@ import HowItWorks from "@/components/HowItWorks";
 import PricingSection from "@/components/PricingSection";
 import FAQ from "@/components/FAQ";
 import ChatWidget from "@/components/ChatWidget";
+import Testimonials from "@/components/Testimonials";
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
       <Hero />
       <PricingSection />
       <HowItWorks />
+      <Testimonials />
       <FAQ limit={3} />
       <ChatWidget />
     </div>
