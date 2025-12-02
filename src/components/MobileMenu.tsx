@@ -32,38 +32,38 @@ const MobileMenu = ({ onNavigate, onChatClick }: MobileMenuProps) => {
       <SheetContent side="right" className="w-[250px] p-0">
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className="flex items-center justify-between p-6 border-b">
+          <div className="flex items-center justify-between p-4 border-b">
             <img 
               src={logoImage} 
               alt="LittleShark Logo" 
-              className="h-10 w-auto"
+              className="h-8 w-auto"
             />
           </div>
 
           {/* Navigation Links */}
-          <nav className="flex-1 p-6">
-            <div className="space-y-1">
+          <nav className="flex-1 p-4">
+            <div className="space-y-0.5">
               <button
                 onClick={() => handleNavigation("hero")}
-                className="w-full text-left px-4 py-3 text-lg font-medium text-foreground hover:bg-muted rounded-lg transition-colors"
+                className="w-full text-left px-3 py-2 text-base font-medium text-foreground hover:bg-muted rounded-lg transition-colors"
               >
                 Home
               </button>
               <button
                 onClick={() => handleNavigation("planos")}
-                className="w-full text-left px-4 py-3 text-lg font-medium text-foreground hover:bg-muted rounded-lg transition-colors"
+                className="w-full text-left px-3 py-2 text-base font-medium text-foreground hover:bg-muted rounded-lg transition-colors"
               >
                 Planos
               </button>
               <button
                 onClick={() => handleNavigation("como-funciona")}
-                className="w-full text-left px-4 py-3 text-lg font-medium text-foreground hover:bg-muted rounded-lg transition-colors"
+                className="w-full text-left px-3 py-2 text-base font-medium text-foreground hover:bg-muted rounded-lg transition-colors"
               >
                 Como funciona
               </button>
               <button
                 onClick={handleChat}
-                className="w-full text-left px-4 py-3 text-lg font-medium text-foreground hover:bg-muted rounded-lg transition-colors"
+                className="w-full text-left px-3 py-2 text-base font-medium text-foreground hover:bg-muted rounded-lg transition-colors"
               >
                 Chat
               </button>
@@ -71,10 +71,10 @@ const MobileMenu = ({ onNavigate, onChatClick }: MobileMenuProps) => {
           </nav>
 
           {/* CTA Button */}
-          <div className="p-6 border-t">
+          <div className="p-4 border-t">
             <Button
               onClick={() => handleNavigation("planos")}
-              className="w-full bg-gradient-to-r from-primary to-cyan-400 hover:opacity-90 text-white font-semibold py-6 text-lg shadow-lg"
+              className="w-full bg-gradient-to-r from-primary to-cyan-400 hover:opacity-90 text-white font-semibold py-4 text-base shadow-lg"
             >
               Comprar créditos
             </Button>
