@@ -32,21 +32,21 @@ const MobileMenu = ({
           
 
           {/* Navigation Links */}
-          <nav className="flex flex-col p-6 gap-6">
-            <button onClick={() => handleNavigation("hero")} className="text-lg font-normal text-foreground hover:text-primary transition-colors text-left">
+          <nav className="flex flex-col p-4 gap-4 pt-8">
+            <button onClick={() => handleNavigation("hero")} className="text-base font-normal text-foreground hover:text-primary transition-colors text-left py-2">
               Home
             </button>
-            <button onClick={() => handleNavigation("planos")} className="text-lg font-normal text-foreground hover:text-primary transition-colors text-left">
+            <button onClick={() => handleNavigation("planos")} className="text-base font-normal text-foreground hover:text-primary transition-colors text-left py-2">
               Planos
             </button>
-            <button onClick={() => handleNavigation("como-funciona")} className="text-lg font-normal text-foreground hover:text-primary transition-colors text-left">
+            <button onClick={() => handleNavigation("como-funciona")} className="text-base font-normal text-foreground hover:text-primary transition-colors text-left py-2">
               Como funciona
             </button>
-            <button onClick={handleChat} className="text-lg font-normal text-foreground hover:text-primary transition-colors text-left">
+            <button onClick={handleChat} className="text-base font-normal text-foreground hover:text-primary transition-colors text-left py-2">
               Chat
             </button>
             
-            <Button onClick={() => handleNavigation("planos")} className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-semibold px-6 py-6 rounded-xl w-full text-base mt-2">
+            <Button onClick={() => handleNavigation("planos")} className="bg-gradient-to-r from-primary to-cyan-400 hover:opacity-90 text-white font-semibold px-6 py-4 rounded-xl w-full text-base mt-4">
               Comprar créditos
             </Button>
           </nav>
