@@ -32,20 +32,12 @@ const MobileMenu = ({ onNavigate, onChatClick }: MobileMenuProps) => {
       <SheetContent side="right" className="w-[280px] p-0">
         <div className="flex flex-col h-full bg-background">
           {/* Header */}
-          <div className="flex items-center justify-between p-5 border-b">
+          <div className="flex items-center p-5 border-b">
             <img 
               src={logoImage} 
               alt="LittleShark Logo" 
               className="h-8 w-auto"
             />
-            <Button 
-              variant="outline" 
-              size="icon"
-              onClick={() => setOpen(false)}
-              className="h-9 w-9 rounded-lg border-2 border-primary/20 hover:border-primary hover:bg-transparent"
-            >
-              <X className="h-5 w-5" />
-            </Button>
           </div>
 
           {/* Navigation Links */}
