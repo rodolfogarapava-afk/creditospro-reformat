@@ -144,9 +144,9 @@ const ChatWidget = () => {
     <>
       {/* Chat Widget */}
       {isOpen && (
-        <div className="fixed bottom-24 right-6 w-[380px] h-[500px] bg-background border border-border rounded-2xl shadow-2xl flex flex-col z-50 animate-scale-in">
+        <div className="fixed bottom-0 right-0 md:bottom-24 md:right-6 w-full h-full md:w-[380px] md:h-[500px] bg-background border-0 md:border md:border-border md:rounded-2xl shadow-2xl flex flex-col z-50 animate-scale-in">
           {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b bg-primary text-primary-foreground rounded-t-2xl">
+          <div className="flex items-center justify-between p-4 border-b bg-primary text-primary-foreground md:rounded-t-2xl">
             <div className="flex items-center gap-2">
               <MessageCircle className="h-5 w-5" />
               <span className="font-semibold">Assistente Virtual</span>
