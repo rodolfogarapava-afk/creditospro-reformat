@@ -223,15 +223,14 @@ const ChatWidget = () => {
                   
                   {/* Show quick actions after first assistant message */}
                   {idx === 0 && msg.role === "assistant" && messages.length === 1 && (
-                    <div className="mt-4 grid grid-cols-2 gap-2">
+                    <div className="mt-4 grid grid-cols-2 gap-3">
                       {quickActions.map((qa, qaIdx) => (
                         <Button
                           key={qaIdx}
                           variant="outline"
-                          size="sm"
                           onClick={() => handleQuickAction(qa.action)}
                           disabled={isLoading}
-                          className="text-xs h-auto py-2 px-3 whitespace-normal text-left justify-start"
+                          className="text-sm h-auto py-3 px-4 whitespace-normal text-left justify-start font-medium hover:bg-primary/5 hover:border-primary/50 transition-all hover:scale-105"
                         >
                           {qa.label}
                         </Button>
