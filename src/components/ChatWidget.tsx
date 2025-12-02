@@ -10,18 +10,37 @@ type Message = { role: "user" | "assistant"; content: string };
 const ChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { role: "assistant", content: "Olá! Como posso ajudar você hoje?" }
+    { role: "assistant", content: "Olá! 👋 Sou o assistente virtual da LittleShark. Como posso ajudar você hoje?" }
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
+  const quickActions = [
+    { label: "Ver Planos", action: "Quais são os planos disponíveis e seus preços?" },
+    { label: "Como Funciona", action: "Como funciona o processo de compra?" },
+    { label: "Horário", action: "Qual é o horário de atendimento?" },
+    { label: "Falar com Suporte", action: "whatsapp" },
+  ];
+
   useEffect(() => {
     if (scrollAreaRef.current) {
       scrollAreaRef.current.scrollTop = scrollAreaRef.current.scrollHeight;
     }
   }, [messages]);
+
+  const handleQuickAction = (action: string) => {
+    if (action === "whatsapp") {
+      window.open("https://wa.me/5511955784473?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20os%20créditos%20Lovable%20do%20Créditos%20Pro.", "_blank");
+      return;
+    }
+    
+    const userMessage: Message = { role: "user", content: action };
+    setMessages(prev => [...prev, userMessage]);
+    setIsLoading(true);
+    streamChat(userMessage);
+  };
 
   const streamChat = async (userMessage: Message) => {
     const CHAT_URL = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/chat`;
@@ -164,6 +183,23 @@ const ChatWidget = () => {
           {/* Messages */}
           <ScrollArea className="flex-1 p-4" ref={scrollAreaRef}>
             <div className="space-y-4">
+              {messages.length === 1 && (
+                <div className="mb-4 grid grid-cols-2 gap-2">
+                  {quickActions.map((qa, idx) => (
+                    <Button
+                      key={idx}
+                      variant="outline"
+                      size="sm"
+                      onClick={() => handleQuickAction(qa.action)}
+                      disabled={isLoading}
+                      className="text-xs h-auto py-2 px-3 whitespace-normal text-left justify-start"
+                    >
+                      {qa.label}
+                    </Button>
+                  ))}
+                </div>
+              )}
+              
               {messages.map((msg, idx) => (
                 <div
                   key={idx}
