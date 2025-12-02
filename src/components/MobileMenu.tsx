@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
+import logoImage from "@/assets/littleshark-logo.png";
 
 interface MobileMenuProps {
   onNavigate: (sectionId: string) => void;
@@ -32,14 +33,11 @@ const MobileMenu = ({ onNavigate, onChatClick }: MobileMenuProps) => {
         <div className="flex flex-col h-full">
           {/* Header */}
           <div className="flex items-center justify-between p-6 border-b">
-            <div className="flex items-center gap-2">
-              <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-cyan-400 flex items-center justify-center">
-                <span className="text-white font-bold text-xl">C</span>
-              </div>
-              <div>
-                <h2 className="text-lg font-bold text-foreground">Créditos Pro</h2>
-              </div>
-            </div>
+            <img 
+              src={logoImage} 
+              alt="LittleShark Logo" 
+              className="h-10 w-auto"
+            />
           </div>
 
           {/* Navigation Links */}
