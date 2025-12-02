@@ -187,7 +187,7 @@ const ChatWidget = () => {
       {isOpen && (
         <div className="fixed bottom-0 right-0 md:bottom-24 md:right-6 w-full h-full md:w-[380px] md:h-[500px] bg-background border-0 md:border md:border-border md:rounded-2xl shadow-2xl flex flex-col z-50 animate-scale-in">
           {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b bg-primary text-primary-foreground md:rounded-t-2xl">
+          <div className="flex items-center justify-between p-4 border-b bg-cyan-500 text-white md:rounded-t-2xl">
             <div className="flex items-center gap-2">
               <MessageCircle className="h-5 w-5" />
               <span className="font-semibold">Assistente Virtual</span>
@@ -196,7 +196,7 @@ const ChatWidget = () => {
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(false)}
-              className="h-8 w-8 hover:bg-primary-foreground/20"
+              className="h-8 w-8 hover:bg-white/20 text-white"
             >
               <X className="h-5 w-5" />
             </Button>
@@ -210,13 +210,13 @@ const ChatWidget = () => {
                   <div
                     className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
                   >
-                    <div
-                      className={`max-w-[80%] rounded-2xl px-4 py-2 ${
-                        msg.role === "user"
-                          ? "bg-primary text-primary-foreground"
-                          : "bg-muted"
-                      }`}
-                    >
+                  <div
+                    className={`max-w-[80%] rounded-2xl px-4 py-2 ${
+                      msg.role === "user"
+                        ? "bg-cyan-500 text-white"
+                        : "bg-muted"
+                    }`}
+                  >
                       {renderMessageContent(msg.content)}
                     </div>
                   </div>
@@ -281,7 +281,7 @@ const ChatWidget = () => {
       {!isOpen && (
         <Button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-2xl hover:scale-110 transition-transform z-50"
+          className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-2xl hover:scale-110 transition-transform z-50 bg-cyan-500 hover:bg-cyan-600"
           size="icon"
         >
           <MessageCircle className="h-6 w-6" />
