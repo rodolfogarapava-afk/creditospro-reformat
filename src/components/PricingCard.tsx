@@ -56,9 +56,9 @@ const PricingCard = ({
 
   return (
     <div
-      className={`relative rounded-2xl border-2 p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
+      className={`relative rounded-2xl border-2 p-4 sm:p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
         featured
-          ? "border-primary bg-gradient-to-br from-primary/5 to-cyan-400/5 shadow-lg scale-105"
+          ? "border-primary bg-gradient-to-br from-primary/5 to-cyan-400/5 shadow-lg md:scale-105"
           : "border-border bg-card hover:border-primary/50"
       }`}
     >
@@ -70,12 +70,12 @@ const PricingCard = ({
       </div>
 
       {/* Credits */}
-      <h3 className="text-3xl font-bold text-foreground mb-2">
+      <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
         {credits.toLocaleString("pt-BR")} Créditos
       </h3>
 
       {firstPurchaseOnly && (
-        <p className="text-sm text-muted-foreground mb-4">Válido apenas na primeira compra</p>
+        <p className="text-xs sm:text-sm text-muted-foreground mb-4">Válido apenas na primeira compra</p>
       )}
 
       {/* Prices */}
@@ -93,7 +93,7 @@ const PricingCard = ({
           <p className="text-xs text-muted-foreground mb-1 flex items-center gap-1">
             Preço Créditos Pro 🎯
           </p>
-          <p className="text-4xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">
+          <p className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">
             R$ {proPrice.toFixed(2).replace(".", ",")}
           </p>
         </div>
@@ -114,7 +114,7 @@ const PricingCard = ({
 
       {/* CTA */}
       <Button 
-        className={`w-full py-6 text-lg font-semibold rounded-xl transition-all duration-300 ${
+        className={`w-full py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-xl transition-all duration-300 ${
           featured
             ? "bg-gradient-to-r from-primary to-cyan-400 hover:opacity-90 text-white shadow-lg"
             : "bg-primary hover:bg-primary/90 text-primary-foreground"

@@ -73,34 +73,34 @@ const FAQ = ({ limit }: FAQProps) => {
   ];
 
   return (
-    <section className="py-20 bg-muted/30">
+    <section className="py-12 md:py-20 bg-muted/30">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto">
           {/* Header */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-gradient-to-br from-primary to-cyan-400 mb-6">
-              <HelpCircle className="w-8 h-8 text-white" />
+          <div className="text-center mb-8 md:mb-12">
+            <div className="inline-flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-gradient-to-br from-primary to-cyan-400 mb-4 md:mb-6">
+              <HelpCircle className="w-6 h-6 md:w-8 md:h-8 text-white" />
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-3 md:mb-4 px-2">
               Perguntas Frequentes
             </h2>
-            <p className="text-xl text-muted-foreground">
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground px-4">
               Respostas rápidas para suas principais dúvidas
             </p>
           </div>
 
           {/* FAQ Accordion */}
-          <Accordion type="single" collapsible className="space-y-4">
+          <Accordion type="single" collapsible className="space-y-3 md:space-y-4">
             {faqs.slice(0, limit || faqs.length).map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
-                className="bg-card border border-border rounded-xl px-6 transition-all hover:border-primary/50 hover:shadow-md"
+                className="bg-card border border-border rounded-xl px-4 sm:px-6 transition-all hover:border-primary/50 hover:shadow-md"
               >
-                <AccordionTrigger className="text-lg font-medium text-left hover:no-underline py-6">
+                <AccordionTrigger className="text-base sm:text-lg font-medium text-left hover:no-underline py-4 sm:py-6">
                   {faq.question}
                 </AccordionTrigger>
-                <AccordionContent className="text-muted-foreground pb-6 leading-relaxed">
+                <AccordionContent className="text-sm sm:text-base text-muted-foreground pb-4 sm:pb-6 leading-relaxed">
                   {faq.answer}
                 </AccordionContent>
               </AccordionItem>
@@ -108,20 +108,20 @@ const FAQ = ({ limit }: FAQProps) => {
           </Accordion>
 
           {/* CTA */}
-          <div className="text-center mt-12">
+          <div className="text-center mt-8 md:mt-12 px-2">
             {limit && (
               <div className="mb-6">
                 <Button
                   onClick={() => navigate("/perguntas-frequentes")}
                   variant="outline"
                   size="lg"
-                  className="px-8 py-6 text-lg hover:border-primary hover:text-primary transition-all"
+                  className="px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg hover:border-primary hover:text-primary transition-all"
                 >
                   Ver todas as perguntas frequentes
                 </Button>
               </div>
             )}
-            <p className="text-muted-foreground mb-4">
+            <p className="text-sm sm:text-base text-muted-foreground mb-4 px-4">
               Ainda tem dúvidas? Estamos aqui para ajudar!
             </p>
             <a
@@ -131,7 +131,7 @@ const FAQ = ({ limit }: FAQProps) => {
             >
               <Button
                 size="lg"
-                className="bg-gradient-to-r from-primary to-cyan-400 hover:opacity-90 text-white font-semibold shadow-lg"
+                className="bg-gradient-to-r from-primary to-cyan-400 hover:opacity-90 text-white font-semibold shadow-lg px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg"
               >
                 Falar com suporte
               </Button>
