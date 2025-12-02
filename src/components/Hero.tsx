@@ -1,8 +1,6 @@
 import { Clock } from "lucide-react";
-
 const Hero = () => {
-  return (
-    <section id="hero" className="relative pt-32 pb-8 overflow-hidden">
+  return <section id="hero" className="relative pt-32 pb-8 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/20 via-background to-background" />
       
@@ -31,30 +29,13 @@ const Hero = () => {
           </p>
 
           {/* CTA area */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-            <a 
-              href="#planos"
-              className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-gradient-to-r from-primary to-cyan-400 text-white font-semibold shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300"
-            >
-              Ver planos
-            </a>
-            <a
-              href="https://wa.me/5511955784473?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20os%20créditos%20Lovable%20do%20Créditos%20Pro."
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 rounded-xl bg-card border border-border text-foreground font-semibold hover:border-primary hover:shadow-md transition-all duration-300"
-            >
-              Falar no WhatsApp
-            </a>
-          </div>
+          
         </div>
       </div>
 
       {/* Decorative elements */}
       <div className="absolute top-20 left-10 w-72 h-72 bg-primary/10 rounded-full blur-3xl" />
       <div className="absolute bottom-20 right-10 w-72 h-72 bg-cyan-400/10 rounded-full blur-3xl" />
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
