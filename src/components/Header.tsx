@@ -15,11 +15,11 @@ const Header = () => {
     window.open('https://wa.me/5511955784473?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20os%20créditos%20Lovable%20do%20Créditos%20Pro.', '_blank');
   };
   return <header className="fixed top-0 left-0 right-0 z-50 bg-muted/95 backdrop-blur-lg border-b border-border/50">
-      <div className="container mx-auto px-4 py-4">
+      <div className="container mx-auto px-4 py-2">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <button onClick={() => scrollToSection('hero')} className="flex items-center gap-2 cursor-pointer">
-            <img alt="LittleShark Logo" className="h-16 w-auto" src="/lovable-uploads/2398500c-88af-48fa-9e62-1e0207919f09.png" />
+            <img alt="LittleShark Logo" className="h-12 w-auto" src="/lovable-uploads/2398500c-88af-48fa-9e62-1e0207919f09.png" />
           </button>
           
           {/* Desktop Navigation */}
