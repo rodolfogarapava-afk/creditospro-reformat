@@ -29,41 +29,49 @@ const MobileMenu = ({ onNavigate, onChatClick }: MobileMenuProps) => {
           <Menu className="h-6 w-6" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-[250px] p-0">
+      <SheetContent side="right" className="w-[280px] p-0">
         <div className="flex flex-col h-full">
           {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b">
+          <div className="flex items-center justify-between p-6 border-b">
             <img 
               src={logoImage} 
               alt="LittleShark Logo" 
-              className="h-8 w-auto"
+              className="h-9 w-auto"
             />
+            <Button 
+              variant="ghost" 
+              size="icon"
+              onClick={() => setOpen(false)}
+              className="h-8 w-8"
+            >
+              <X className="h-5 w-5" />
+            </Button>
           </div>
 
           {/* Navigation Links */}
-          <nav className="flex-1 p-4">
-            <div className="space-y-0.5">
+          <nav className="flex-1 px-6 pt-8">
+            <div className="space-y-6">
               <button
                 onClick={() => handleNavigation("hero")}
-                className="w-full text-left px-3 py-2 text-base font-medium text-foreground hover:bg-muted rounded-lg transition-colors"
+                className="w-full text-left text-base font-medium text-foreground hover:text-primary transition-colors"
               >
                 Home
               </button>
               <button
                 onClick={() => handleNavigation("planos")}
-                className="w-full text-left px-3 py-2 text-base font-medium text-foreground hover:bg-muted rounded-lg transition-colors"
+                className="w-full text-left text-base font-medium text-foreground hover:text-primary transition-colors"
               >
                 Planos
               </button>
               <button
                 onClick={() => handleNavigation("como-funciona")}
-                className="w-full text-left px-3 py-2 text-base font-medium text-foreground hover:bg-muted rounded-lg transition-colors"
+                className="w-full text-left text-base font-medium text-foreground hover:text-primary transition-colors"
               >
                 Como funciona
               </button>
               <button
                 onClick={handleChat}
-                className="w-full text-left px-3 py-2 text-base font-medium text-foreground hover:bg-muted rounded-lg transition-colors"
+                className="w-full text-left text-base font-medium text-foreground hover:text-primary transition-colors"
               >
                 Chat
               </button>
@@ -71,10 +79,10 @@ const MobileMenu = ({ onNavigate, onChatClick }: MobileMenuProps) => {
           </nav>
 
           {/* CTA Button */}
-          <div className="p-4 border-t">
+          <div className="p-6">
             <Button
               onClick={() => handleNavigation("planos")}
-              className="w-full bg-gradient-to-r from-primary to-cyan-400 hover:opacity-90 text-white font-semibold py-4 text-base shadow-lg"
+              className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-5 text-base shadow-lg rounded-xl"
             >
               Comprar créditos
             </Button>
