@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import MobileMenu from "./MobileMenu";
 
 const Header = () => {
   const scrollToSection = (sectionId: string) => {
@@ -16,6 +17,10 @@ const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
       <div className="container mx-auto px-4 py-4">
         <div className="flex items-center justify-between">
+          {/* Mobile Menu */}
+          <MobileMenu onNavigate={scrollToSection} onChatClick={handleChatClick} />
+
+          {/* Logo */}
           <button 
             onClick={() => scrollToSection('hero')}
             className="flex items-center gap-2 cursor-pointer"
@@ -28,6 +33,7 @@ const Header = () => {
             </div>
           </button>
           
+          {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-6">
             <button 
               onClick={() => scrollToSection('hero')}
@@ -55,9 +61,10 @@ const Header = () => {
             </button>
           </nav>
 
+          {/* Desktop CTA Button */}
           <Button 
             onClick={() => scrollToSection('planos')}
-            className="bg-gradient-to-r from-primary to-cyan-400 hover:opacity-90 text-white font-semibold shadow-lg"
+            className="hidden md:inline-flex bg-gradient-to-r from-primary to-cyan-400 hover:opacity-90 text-white font-semibold shadow-lg"
           >
             Comprar créditos
           </Button>
