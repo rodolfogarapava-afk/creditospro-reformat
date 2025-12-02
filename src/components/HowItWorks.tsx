@@ -2,7 +2,7 @@ import { Clock, Shield, Zap, TrendingDown } from "lucide-react";
 
 const HowItWorks = () => {
   return (
-    <section id="como-funciona" className="py-20 relative overflow-hidden">
+    <section id="como-funciona" className="py-20 relative overflow-hidden scroll-mt-20">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-gradient-to-b from-muted/30 to-transparent" />
       
