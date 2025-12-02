@@ -12,7 +12,7 @@ const Index = () => {
       <Hero />
       <HowItWorks />
       <PricingSection />
-      <FAQ />
+      <FAQ limit={3} />
       <WhatsAppButton />
     </div>
   );

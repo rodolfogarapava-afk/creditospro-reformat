@@ -6,8 +6,14 @@ import {
 } from "@/components/ui/accordion";
 import { Button } from "@/components/ui/button";
 import { HelpCircle } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
-const FAQ = () => {
+interface FAQProps {
+  limit?: number;
+}
+
+const FAQ = ({ limit }: FAQProps) => {
+  const navigate = useNavigate();
   const faqs = [
     {
       question: "Como funciona a Oferta de Teste (50 créditos)?",
@@ -85,7 +91,7 @@ const FAQ = () => {
 
           {/* FAQ Accordion */}
           <Accordion type="single" collapsible className="space-y-4">
-            {faqs.map((faq, index) => (
+            {faqs.slice(0, limit || faqs.length).map((faq, index) => (
               <AccordionItem
                 key={index}
                 value={`item-${index}`}
@@ -103,6 +109,18 @@ const FAQ = () => {
 
           {/* CTA */}
           <div className="text-center mt-12">
+            {limit && (
+              <div className="mb-6">
+                <Button
+                  onClick={() => navigate("/perguntas-frequentes")}
+                  variant="outline"
+                  size="lg"
+                  className="px-8 py-6 text-lg hover:border-primary hover:text-primary transition-all"
+                >
+                  Ver todas as perguntas frequentes
+                </Button>
+              </div>
+            )}
             <p className="text-muted-foreground mb-4">
               Ainda tem dúvidas? Estamos aqui para ajudar!
             </p>
