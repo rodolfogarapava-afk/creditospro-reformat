@@ -1,6 +1,10 @@
 import PricingCard from "./PricingCard";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const PricingSection = () => {
+  const navigate = useNavigate();
+
   return (
     <section id="planos" className="py-20 relative scroll-mt-20">
       <div className="container mx-auto px-4">
@@ -73,6 +77,18 @@ const PricingSection = () => {
             sold={0}
             badge="hot"
           />
+        </div>
+
+        {/* Ver todos os planos button */}
+        <div className="flex justify-center mt-12">
+          <Button
+            onClick={() => navigate("/planos")}
+            variant="outline"
+            size="lg"
+            className="px-8 py-6 text-lg hover:border-primary hover:text-primary transition-all"
+          >
+            Ver todos os planos
+          </Button>
         </div>
       </div>
     </section>
