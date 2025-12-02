@@ -31,7 +31,7 @@ const AllPlansHeader = () => {
             <img 
               src="/lovable-uploads/2398500c-88af-48fa-9e62-1e0207919f09.png" 
               alt="LittleShark Logo" 
-              className="h-12 w-auto"
+              className="h-14 w-auto"
             />
           </button>
           
