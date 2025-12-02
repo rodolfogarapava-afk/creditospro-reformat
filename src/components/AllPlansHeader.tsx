@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import MobileMenu from "./MobileMenu";
+import logoImage from "@/assets/littleshark-logo.png";
 
 const AllPlansHeader = () => {
   const navigate = useNavigate();
@@ -28,12 +29,11 @@ const AllPlansHeader = () => {
             onClick={() => navigate("/")}
             className="flex items-center gap-2 cursor-pointer"
           >
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-primary to-cyan-400 flex items-center justify-center">
-              <span className="text-white font-bold text-xl">C</span>
-            </div>
-            <div>
-              <h1 className="text-lg font-bold text-foreground">Créditos Pro</h1>
-            </div>
+            <img 
+              src={logoImage} 
+              alt="LittleShark Logo" 
+              className="h-10 w-auto"
+            />
           </button>
           
           {/* Desktop Navigation */}
