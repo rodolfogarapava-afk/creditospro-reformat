@@ -1,4 +1,6 @@
 import { Clock } from "lucide-react";
+import heartGradient from "@/assets/heart-gradient.png";
+
 const Hero = () => {
   return <section id="hero" className="relative pt-32 pb-2 overflow-hidden">
       {/* Background gradient */}
@@ -18,9 +20,11 @@ const Hero = () => {
           {/* Main heading */}
           <h1 className="text-5xl md:text-7xl font-bold mb-6 leading-tight">
             Créditos Lovable{" "}
-            <span className="bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">
-              ❤️
-            </span>{" "}
+            <img 
+              src={heartGradient} 
+              alt="heart" 
+              className="inline-block w-12 h-12 md:w-16 md:h-16 align-middle"
+            />{" "}
             pelo menor preço
           </h1>
 
