@@ -120,8 +120,12 @@ A: Se o prazo de 1 hora for ultrapassado durante o horário de atendimento, entr
 📞 CONTATO E SUPORTE
 ═══════════════════════════════════════════════════
 
-WhatsApp: +55 11 95578-4473
+WhatsApp: +55 32 9978-7529
 Mensagem padrão: "Olá! Tenho uma dúvida sobre os créditos Lovable do Créditos Pro."
+
+IMPORTANTE: Quando você sugerir que o cliente entre em contato via WhatsApp ou fale com o suporte, 
+sempre inclua o texto exato: [BOTAO_WHATSAPP] no final da sua resposta. 
+Isso fará aparecer um botão clicável para o cliente.
 
 ═══════════════════════════════════════════════════
 ✨ DIFERENCIAIS DO CRÉDITOS PRO

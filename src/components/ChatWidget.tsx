@@ -24,6 +24,9 @@ const ChatWidget = () => {
     { label: "Falar com Suporte", action: "whatsapp" },
   ];
 
+  const WHATSAPP_NUMBER = "553299787529";
+  const WHATSAPP_MESSAGE = "Olá! Tenho uma dúvida sobre os créditos Lovable do Créditos Pro.";
+
   useEffect(() => {
     if (scrollAreaRef.current) {
       scrollAreaRef.current.scrollTop = scrollAreaRef.current.scrollHeight;
@@ -32,7 +35,7 @@ const ChatWidget = () => {
 
   const handleQuickAction = (action: string) => {
     if (action === "whatsapp") {
-      window.open("https://wa.me/5511955784473?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20os%20créditos%20Lovable%20do%20Créditos%20Pro.", "_blank");
+      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`, "_blank");
       return;
     }
     
@@ -40,6 +43,25 @@ const ChatWidget = () => {
     setMessages(prev => [...prev, userMessage]);
     setIsLoading(true);
     streamChat(userMessage);
+  };
+
+  const renderMessageContent = (content: string) => {
+    // Detecta se há marcador de botão WhatsApp
+    if (content.includes("[BOTAO_WHATSAPP]")) {
+      const textWithoutMarker = content.replace("[BOTAO_WHATSAPP]", "").trim();
+      return (
+        <div className="space-y-3">
+          <p className="text-sm whitespace-pre-wrap">{textWithoutMarker}</p>
+          <Button
+            onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`, "_blank")}
+            className="w-full bg-[#25D366] hover:bg-[#20BA5A] text-white font-semibold py-3 rounded-xl shadow-md"
+          >
+            📱 Clique aqui para falar no WhatsApp
+          </Button>
+        </div>
+      );
+    }
+    return <p className="text-sm whitespace-pre-wrap">{content}</p>;
   };
 
   const streamChat = async (userMessage: Message) => {
@@ -212,7 +234,7 @@ const ChatWidget = () => {
                         : "bg-muted"
                     }`}
                   >
-                    <p className="text-sm whitespace-pre-wrap">{msg.content}</p>
+                    {renderMessageContent(msg.content)}
                   </div>
                 </div>
               ))}
