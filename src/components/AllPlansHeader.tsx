@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import MobileMenu from "./MobileMenu";
-import logoImage from "@/assets/littleshark-logo.png";
 
 const AllPlansHeader = () => {
   const navigate = useNavigate();
@@ -30,9 +29,9 @@ const AllPlansHeader = () => {
             className="flex items-center gap-2 cursor-pointer"
           >
             <img 
-              src={logoImage} 
+              src="/lovable-uploads/2398500c-88af-48fa-9e62-1e0207919f09.png" 
               alt="LittleShark Logo" 
-              className="h-10 w-auto"
+              className="h-12 w-auto"
             />
           </button>
           
