@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import AllPlansHeader from "@/components/AllPlansHeader";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import ChatWidget from "@/components/ChatWidget";
 import FAQ from "@/components/FAQ";
 
 const AllFAQs = () => {
@@ -40,6 +41,7 @@ const AllFAQs = () => {
           </div>
         </div>
       </div>
+      <ChatWidget />
     </div>
   );
 };

@@ -5,6 +5,7 @@ import { Clock, Flame } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import AllPlansHeader from "@/components/AllPlansHeader";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import ChatWidget from "@/components/ChatWidget";
 
 const AllPlans = () => {
   const navigate = useNavigate();
@@ -28,7 +29,7 @@ const AllPlans = () => {
   ];
 
   const handleContact = () => {
-    window.open('https://wa.me/5511955784473?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20os%20créditos%20Lovable%20do%20Créditos%20Pro.', '_blank');
+    window.open('https://wa.me/5532997887529?text=Olá!%20Tenho%20interesse%20nos%20créditos%20Lovable.', '_blank');
   };
 
   return (
@@ -231,6 +232,7 @@ const AllPlans = () => {
           </div>
         </div>
       </div>
+      <ChatWidget />
     </div>
   );
 };
