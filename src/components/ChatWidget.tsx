@@ -25,7 +25,7 @@ const ChatWidget = () => {
   ];
 
   const WHATSAPP_NUMBER = "553299787529";
-  const WHATSAPP_MESSAGE = "Olá! Tenho uma dúvida sobre os créditos Lovable do Créditos Pro.";
+  const WHATSAPP_MESSAGE = "Olá! Tenho uma dúvida sobre os créditos Lovable da LittleShark.";
 
   useEffect(() => {
     if (scrollAreaRef.current) {

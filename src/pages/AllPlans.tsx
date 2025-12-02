@@ -102,7 +102,7 @@ const AllPlans = () => {
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm font-medium">Preço Créditos Pro:</span>
+                    <span className="text-sm font-medium">Preço LittleShark:</span>
                     <span className="text-2xl font-bold text-primary">
                       R$ {plan.pro.toFixed(2).replace(".", ",")}
                     </span>
@@ -134,7 +134,7 @@ const AllPlans = () => {
                     <TableHead className="text-base md:text-lg font-semibold">Créditos</TableHead>
                     <TableHead className="text-base md:text-lg font-semibold">Preço Oficial</TableHead>
                     <TableHead className="text-base md:text-lg font-semibold">
-                      Preço Créditos Pro
+                      Preço LittleShark
                     </TableHead>
                     <TableHead className="text-base md:text-lg font-semibold">Desconto</TableHead>
                     <TableHead className="text-base md:text-lg font-semibold">Vendas</TableHead>

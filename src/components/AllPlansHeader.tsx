@@ -16,7 +16,7 @@ const AllPlansHeader = () => {
   };
 
   const handleChatClick = () => {
-    window.open('https://wa.me/5511955784473?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20os%20créditos%20Lovable%20do%20Créditos%20Pro.', '_blank');
+    window.open('https://wa.me/5511955784473?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20os%20créditos%20Lovable%20da%20LittleShark.', '_blank');
   };
 
   return (

@@ -7,7 +7,7 @@ const corsHeaders = {
 
 const GEMINI_MODEL = "gemini-2.5-flash";
 
-const SYSTEM_PROMPT = `Você é o assistente virtual da LittleShark - Créditos Pro, especializado em ajudar clientes com créditos Lovable.
+const SYSTEM_PROMPT = `Você é o assistente virtual da LittleShark, especializado em ajudar clientes com créditos Lovable.
 
 ═══════════════════════════════════════════════════
 📋 INFORMAÇÕES SOBRE OS PLANOS E PREÇOS
@@ -128,7 +128,7 @@ E sempre inclua o texto exato: [BOTAO_WHATSAPP] no final da sua resposta.
 Isso fará aparecer um botão clicável para o cliente.
 
 ═══════════════════════════════════════════════════
-✨ DIFERENCIAIS DO CRÉDITOS PRO
+✨ DIFERENCIAIS DA LITTLESHARK
 ═══════════════════════════════════════════════════
 
 ✅ Economia de até 87% comparado ao preço oficial
