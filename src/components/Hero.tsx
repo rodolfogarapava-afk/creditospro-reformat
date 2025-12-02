@@ -1,6 +1,6 @@
 import { Clock } from "lucide-react";
 const Hero = () => {
-  return <section id="hero" className="relative pt-32 pb-8 overflow-hidden">
+  return <section id="hero" className="relative pt-32 pb-2 overflow-hidden">
       {/* Background gradient */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-primary/20 via-background to-background" />
       
