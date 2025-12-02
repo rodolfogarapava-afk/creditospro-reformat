@@ -41,44 +41,39 @@ const MobileMenu = ({ onNavigate, onChatClick }: MobileMenuProps) => {
           </div>
 
           {/* Navigation Links */}
-          <nav className="flex-1 px-4 pt-4">
-            <div className="space-y-2">
-              <button
-                onClick={() => handleNavigation("hero")}
-                className="w-full text-left text-sm font-normal text-foreground hover:text-primary transition-colors py-2"
-              >
-                Home
-              </button>
-              <button
-                onClick={() => handleNavigation("planos")}
-                className="w-full text-left text-sm font-normal text-foreground hover:text-primary transition-colors py-2"
-              >
-                Planos
-              </button>
-              <button
-                onClick={() => handleNavigation("como-funciona")}
-                className="w-full text-left text-sm font-normal text-foreground hover:text-primary transition-colors py-2"
-              >
-                Como funciona
-              </button>
-              <button
-                onClick={handleChat}
-                className="w-full text-left text-sm font-normal text-foreground hover:text-primary transition-colors py-2"
-              >
-                Chat
-              </button>
-            </div>
-          </nav>
-
-          {/* CTA Button */}
-          <div className="p-4">
+          <nav className="flex flex-col p-4 gap-2">
+            <button
+              onClick={() => handleNavigation("hero")}
+              className="text-base transition-colors hover:text-foreground hover:bg-white/20 px-4 py-3 rounded-lg text-foreground/80 font-medium text-left"
+            >
+              Home
+            </button>
+            <button
+              onClick={() => handleNavigation("planos")}
+              className="text-base transition-colors hover:text-foreground hover:bg-white/20 px-4 py-3 rounded-lg text-foreground/80 font-medium text-left"
+            >
+              Planos
+            </button>
+            <button
+              onClick={() => handleNavigation("como-funciona")}
+              className="text-base transition-colors hover:text-foreground hover:bg-white/20 px-4 py-3 rounded-lg text-foreground/80 font-medium text-left"
+            >
+              Como funciona
+            </button>
+            <button
+              onClick={handleChat}
+              className="text-base transition-colors hover:text-foreground hover:bg-white/20 px-4 py-3 rounded-lg text-foreground/80 font-medium text-left"
+            >
+              Chat
+            </button>
+            
             <Button
               onClick={() => handleNavigation("planos")}
-              className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-4 text-sm shadow-lg rounded-lg"
+              className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-semibold px-6 py-3 rounded-lg w-full text-base mt-2 h-10"
             >
               Comprar créditos
             </Button>
-          </div>
+          </nav>
         </div>
       </SheetContent>
     </Sheet>
