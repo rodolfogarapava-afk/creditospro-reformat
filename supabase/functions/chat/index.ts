@@ -5,7 +5,7 @@ const corsHeaders = {
   "Access-Control-Allow-Headers": "authorization, x-client-info, apikey, content-type",
 };
 
-const GEMINI_MODEL = "gemini-1.5-flash";
+const GEMINI_MODEL = "gemini-2.5-flash";
 
 const SYSTEM_PROMPT = `Você é o assistente virtual da LittleShark, especializado em ajudar clientes com créditos Lovable.
 
@@ -93,8 +93,14 @@ serve(async (req) => {
       parts: [{ text: SYSTEM_PROMPT }]
     });
 
+    // Adicionar resposta do modelo reconhecendo o system prompt
+    contents.splice(1, 0, {
+      role: "model",
+      parts: [{ text: "Entendido! Estou pronto para ajudar os clientes da LittleShark com informações sobre créditos Lovable." }]
+    });
+
     const response = await fetch(
-      `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:streamGenerateContent?key=${GEMINI_API_KEY}`,
+      `https://generativelanguage.googleapis.com/v1/models/${GEMINI_MODEL}:streamGenerateContent?key=${GEMINI_API_KEY}&alt=sse`,
       {
         method: "POST",
         headers: {
@@ -120,7 +126,7 @@ serve(async (req) => {
 
     console.log("Streaming resposta do Gemini");
 
-    // Converter stream do Gemini para formato SSE
+    // Converter stream do Gemini para formato SSE compatível com o cliente
     const reader = response.body?.getReader();
     const encoder = new TextEncoder();
     
@@ -144,26 +150,29 @@ serve(async (req) => {
             buffer = lines.pop() || "";
 
             for (const line of lines) {
-              if (line.trim() && line.includes("text")) {
+              const trimmed = line.trim();
+              if (!trimmed || trimmed.startsWith("data: [DONE]")) continue;
+              
+              // Remove o prefixo "data: " se existir
+              const jsonStr = trimmed.startsWith("data: ") ? trimmed.slice(6) : trimmed;
+              
+              if (jsonStr) {
                 try {
-                  const jsonMatch = line.match(/\{.*\}/);
-                  if (jsonMatch) {
-                    const data = JSON.parse(jsonMatch[0]);
-                    const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
-                    
-                    if (text) {
-                      const sseData = {
-                        choices: [{
-                          delta: { content: text }
-                        }]
-                      };
-                      controller.enqueue(
-                        encoder.encode(`data: ${JSON.stringify(sseData)}\n\n`)
-                      );
-                    }
+                  const data = JSON.parse(jsonStr);
+                  const text = data.candidates?.[0]?.content?.parts?.[0]?.text;
+                  
+                  if (text) {
+                    const sseData = {
+                      choices: [{
+                        delta: { content: text }
+                      }]
+                    };
+                    controller.enqueue(
+                      encoder.encode(`data: ${JSON.stringify(sseData)}\n\n`)
+                    );
                   }
                 } catch (e) {
-                  console.error("Erro ao processar chunk:", e);
+                  console.error("Erro ao processar chunk:", e, "JSON:", jsonStr);
                 }
               }
             }
