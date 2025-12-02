@@ -29,47 +29,47 @@ const MobileMenu = ({ onNavigate, onChatClick }: MobileMenuProps) => {
           <Menu className="h-4 w-4" />
         </Button>
       </SheetTrigger>
-      <SheetContent side="right" className="w-[240px] p-0">
+      <SheetContent side="right" className="w-[280px] p-0">
         <div className="flex flex-col h-full bg-background">
           {/* Header */}
-          <div className="flex items-center p-3 border-b">
+          <div className="flex items-center p-5 border-b">
             <img 
               src={logoImage} 
               alt="LittleShark Logo" 
-              className="h-6 w-auto"
+              className="h-8 w-auto"
             />
           </div>
 
           {/* Navigation Links */}
-          <nav className="flex flex-col p-4 gap-2">
+          <nav className="flex flex-col p-6 gap-6">
             <button
               onClick={() => handleNavigation("hero")}
-              className="text-base transition-colors hover:text-foreground hover:bg-white/20 px-4 py-3 rounded-lg text-foreground/80 font-medium text-left"
+              className="text-lg font-normal text-foreground hover:text-primary transition-colors text-left"
             >
               Home
             </button>
             <button
               onClick={() => handleNavigation("planos")}
-              className="text-base transition-colors hover:text-foreground hover:bg-white/20 px-4 py-3 rounded-lg text-foreground/80 font-medium text-left"
+              className="text-lg font-normal text-foreground hover:text-primary transition-colors text-left"
             >
               Planos
             </button>
             <button
               onClick={() => handleNavigation("como-funciona")}
-              className="text-base transition-colors hover:text-foreground hover:bg-white/20 px-4 py-3 rounded-lg text-foreground/80 font-medium text-left"
+              className="text-lg font-normal text-foreground hover:text-primary transition-colors text-left"
             >
               Como funciona
             </button>
             <button
               onClick={handleChat}
-              className="text-base transition-colors hover:text-foreground hover:bg-white/20 px-4 py-3 rounded-lg text-foreground/80 font-medium text-left"
+              className="text-lg font-normal text-foreground hover:text-primary transition-colors text-left"
             >
               Chat
             </button>
             
             <Button
               onClick={() => handleNavigation("planos")}
-              className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-semibold px-6 py-3 rounded-lg w-full text-base mt-2 h-10"
+              className="bg-[#2563eb] hover:bg-[#1d4ed8] text-white font-semibold px-6 py-6 rounded-xl w-full text-base mt-2"
             >
               Comprar créditos
             </Button>
