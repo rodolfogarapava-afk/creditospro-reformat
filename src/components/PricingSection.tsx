@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 const PricingSection = () => {
   const navigate = useNavigate();
-  return <section id="planos" className="pt-12 pb-20 relative scroll-mt-20">
+  return <section id="planos" className="pt-4 pb-20 relative scroll-mt-20">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           
