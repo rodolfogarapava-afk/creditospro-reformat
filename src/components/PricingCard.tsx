@@ -1,6 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Check, Flame, Star, Zap } from "lucide-react";
+import heartIcon from "@/assets/heart-gradient.png";
 
 interface PricingCardProps {
   credits: number;
@@ -81,7 +82,7 @@ const PricingCard = ({
       <div className="space-y-4 mb-6">
         <div>
           <p className="text-xs text-muted-foreground mb-1 flex items-center gap-1">
-            Preço oficial ❤️
+            Preço oficial <img src={heartIcon} alt="heart" className="w-4 h-4 inline-block" />
           </p>
           <p className="text-lg text-muted-foreground line-through">
             R$ {officialPrice.toFixed(2).replace(".", ",")}
@@ -90,7 +91,7 @@ const PricingCard = ({
 
         <div>
           <p className="text-xs text-muted-foreground mb-1 flex items-center gap-1">
-            Preço Créditos Pro 🎯
+            Preço Créditos Pro <img src={heartIcon} alt="heart" className="w-4 h-4 inline-block" />
           </p>
           <p className="text-4xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">
             R$ {proPrice.toFixed(2).replace(".", ",")}
