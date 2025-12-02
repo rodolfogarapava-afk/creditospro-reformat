@@ -56,8 +56,74 @@ const AllPlans = () => {
             </p>
           </div>
 
-          {/* Table */}
-          <div className="max-w-6xl mx-auto mb-8 overflow-hidden rounded-2xl border-2 border-border shadow-lg">
+          {/* Mobile Cards View */}
+          <div className="block lg:hidden space-y-4 mb-8">
+            {plans.map((plan, index) => (
+              <div
+                key={index}
+                className={`rounded-xl border-2 p-4 ${
+                  plan.hot
+                    ? "border-red-500 bg-red-50 dark:bg-red-950/20"
+                    : "border-border bg-card"
+                }`}
+              >
+                <div className="flex justify-between items-start mb-3">
+                  <div>
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="text-xl font-bold">
+                        ❤️ {plan.credits.toLocaleString("pt-BR")} Créditos
+                      </span>
+                      {plan.hot && (
+                        <Badge className="bg-red-500 hover:bg-red-600 text-white px-2 py-0.5 text-xs animate-pulse">
+                          <Flame className="h-3 w-3 fill-white mr-1" />
+                          HOT
+                        </Badge>
+                      )}
+                    </div>
+                    {plan.firstPurchase && (
+                      <p className="text-xs text-muted-foreground italic">
+                        Válido apenas na primeira compra
+                      </p>
+                    )}
+                  </div>
+                  <Badge className="bg-success/10 text-success hover:bg-success/20 border-success/20">
+                    {plan.discount}% OFF
+                  </Badge>
+                </div>
+
+                <div className="space-y-2 mb-4">
+                  <div className="flex justify-between">
+                    <span className="text-sm text-muted-foreground">Preço Oficial:</span>
+                    <span className="text-sm text-muted-foreground line-through">
+                      R$ {plan.official.toFixed(2).replace(".", ",")}
+                    </span>
+                  </div>
+                  <div className="flex justify-between items-center">
+                    <span className="text-sm font-medium">Preço Créditos Pro:</span>
+                    <span className="text-2xl font-bold text-primary">
+                      R$ {plan.pro.toFixed(2).replace(".", ",")}
+                    </span>
+                  </div>
+                  <div className="flex justify-between text-xs">
+                    <span className="text-muted-foreground">
+                      <span className="font-semibold text-primary">+{plan.sold}</span> Vendido(s)
+                    </span>
+                    <span className="text-success font-semibold">+Estoque ilimitado</span>
+                  </div>
+                </div>
+
+                <Button
+                  onClick={handleContact}
+                  className="w-full bg-gradient-to-r from-primary to-cyan-400 hover:opacity-90"
+                >
+                  {plan.contactOnly ? "Entre em contato" : "Comprar"}
+                </Button>
+              </div>
+            ))}
+          </div>
+
+          {/* Desktop Table View */}
+          <div className="hidden lg:block max-w-6xl mx-auto mb-8 overflow-hidden rounded-2xl border-2 border-border shadow-lg">
             <div className="overflow-x-auto">
               <Table>
                 <TableHeader>
