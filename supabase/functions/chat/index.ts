@@ -135,12 +135,12 @@ Quando o cliente expressar INTENÇÃO DE COMPRA (ex: "quero comprar", "quero 50 
 você DEVE incluir o botão de pagamento correspondente.
 
 LINKS DE PAGAMENTO:
-- 50 Créditos (R$ 9,90): https://link.infinitepay.io/syyckz/VC1BLUMtSQ-3P7hXWNvKR-10,90
-- 100 Créditos (R$ 29,90): https://link.infinitepay.io/syyckz/VC1BLUMtSQ-3P7hXWNvKR-10,90
-- 200 Créditos (R$ 84,90): https://link.infinitepay.io/syyckz/VC1BLUMtSQ-3P7hXWNvKR-10,90
-- 500 Créditos (R$ 147,90): https://link.infinitepay.io/syyckz/VC1BLUMtSQ-3P7hXWNvKR-10,90
-- 1.000 Créditos (R$ 249,90): https://link.infinitepay.io/syyckz/VC1BLUMtSQ-3P7hXWNvKR-10,90
-- 5.000 Créditos (R$ 921,90): https://link.infinitepay.io/syyckz/VC1BLUMtSQ-3P7hXWNvKR-10,90
+- 50 Créditos (R$ 9,90): https://pix-lite-checkout.lovable.app/
+- 100 Créditos (R$ 29,90): https://pix-lite-checkout.lovable.app/
+- 200 Créditos (R$ 84,90): https://pix-lite-checkout.lovable.app/
+- 500 Créditos (R$ 147,90): https://pix-lite-checkout.lovable.app/
+- 1.000 Créditos (R$ 249,90): https://pix-lite-checkout.lovable.app/
+- 5.000 Créditos (R$ 921,90): https://pix-lite-checkout.lovable.app/
 
 FORMATO DO BOTÃO DE PAGAMENTO:
 Use o marcador [BOTAO_PAGAMENTO:URL] onde URL é o link correspondente ao plano.
@@ -150,7 +150,7 @@ Exemplo de resposta quando cliente quer comprar 50 créditos:
 
 Clique no botão abaixo para finalizar sua compra:
 
-[BOTAO_PAGAMENTO:https://link.infinitepay.io/syyckz/VC1BLUMtSQ-3P7hXWNvKR-10,90]"
+[BOTAO_PAGAMENTO:https://pix-lite-checkout.lovable.app/]"
 
 REGRAS:
 - Sempre confirme o plano escolhido antes de enviar o link
