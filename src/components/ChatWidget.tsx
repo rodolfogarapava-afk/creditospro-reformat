@@ -46,22 +46,48 @@ const ChatWidget = () => {
   };
 
   const renderMessageContent = (content: string) => {
+    let processedContent = content;
+    const buttons: JSX.Element[] = [];
+
+    // Detecta se há marcador de botão de pagamento
+    const paymentMatch = processedContent.match(/\[BOTAO_PAGAMENTO:(https?:\/\/[^\]]+)\]/);
+    if (paymentMatch) {
+      processedContent = processedContent.replace(paymentMatch[0], "").trim();
+      buttons.push(
+        <Button
+          key="payment"
+          onClick={() => window.open(paymentMatch[1], "_blank")}
+          className="w-full bg-gradient-to-r from-red-500 to-cyan-500 hover:from-red-600 hover:to-cyan-600 text-white font-semibold py-3 rounded-xl shadow-md"
+        >
+          💳 Finalizar Compra
+        </Button>
+      );
+    }
+
     // Detecta se há marcador de botão WhatsApp
-    if (content.includes("[BOTAO_WHATSAPP]")) {
-      const textWithoutMarker = content.replace("[BOTAO_WHATSAPP]", "").trim();
+    if (processedContent.includes("[BOTAO_WHATSAPP]")) {
+      processedContent = processedContent.replace("[BOTAO_WHATSAPP]", "").trim();
+      buttons.push(
+        <Button
+          key="whatsapp"
+          onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`, "_blank")}
+          className="w-full bg-[#25D366] hover:bg-[#20BA5A] text-white font-semibold py-3 rounded-xl shadow-md"
+        >
+          📱 Clique aqui para falar no WhatsApp
+        </Button>
+      );
+    }
+
+    if (buttons.length > 0) {
       return (
         <div className="space-y-3">
-          <p className="text-base whitespace-pre-wrap">{textWithoutMarker}</p>
-          <Button
-            onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`, "_blank")}
-            className="w-full bg-[#25D366] hover:bg-[#20BA5A] text-white font-semibold py-3 rounded-xl shadow-md"
-          >
-            📱 Clique aqui para falar no WhatsApp
-          </Button>
+          <p className="text-base whitespace-pre-wrap">{processedContent}</p>
+          {buttons}
         </div>
       );
     }
-    return <p className="text-base whitespace-pre-wrap">{content}</p>;
+
+    return <p className="text-base whitespace-pre-wrap">{processedContent}</p>;
   };
 
   const streamChat = async (userMessage: Message) => {
