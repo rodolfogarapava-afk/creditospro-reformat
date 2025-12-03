@@ -49,24 +49,40 @@ const ChatWidget = () => {
     let processedContent = content;
     const buttons: JSX.Element[] = [];
 
-    // Detecta se há marcador de botão de pagamento
-    const paymentMatch = processedContent.match(/\[BOTAO_PAGAMENTO:(https?:\/\/[^\]]+)\]/);
-    if (paymentMatch) {
-      processedContent = processedContent.replace(paymentMatch[0], "").trim();
+    // Remove quebras de linha dentro do marcador para garantir que funcione
+    // Primeiro, normaliza o conteúdo removendo quebras de linha dentro de marcadores
+    processedContent = processedContent.replace(
+      /\[BOTAO_PAGAMENTO:[\s\n]*(https?:\/\/[^\]]+?)[\s\n]*\]/gi,
+      (match, url) => {
+        // Remove qualquer whitespace/newlines da URL capturada
+        const cleanUrl = url.replace(/[\s\n]/g, '');
+        return `[BOTAO_PAGAMENTO:${cleanUrl}]`;
+      }
+    );
+
+    // Agora processa os botões de pagamento normalizados
+    const paymentRegex = /\[BOTAO_PAGAMENTO:(https?:\/\/[^\]]+)\]/gi;
+    let paymentMatch;
+    
+    while ((paymentMatch = paymentRegex.exec(processedContent)) !== null) {
+      const url = paymentMatch[1].trim();
       buttons.push(
         <Button
-          key="payment"
-          onClick={() => window.open(paymentMatch[1], "_blank")}
+          key={`payment-${buttons.length}`}
+          onClick={() => window.open(url, "_blank")}
           className="w-full bg-gradient-to-r from-red-500 to-cyan-500 hover:from-red-600 hover:to-cyan-600 text-white font-semibold py-3 rounded-xl shadow-md"
         >
           💳 Finalizar Compra
         </Button>
       );
     }
+    
+    // Remove todos os marcadores de pagamento do texto
+    processedContent = processedContent.replace(/\[BOTAO_PAGAMENTO:[^\]]+\]/gi, "");
 
     // Detecta se há marcador de botão WhatsApp
     if (processedContent.includes("[BOTAO_WHATSAPP]")) {
-      processedContent = processedContent.replace("[BOTAO_WHATSAPP]", "").trim();
+      processedContent = processedContent.replace(/\[BOTAO_WHATSAPP\]/gi, "");
       buttons.push(
         <Button
           key="whatsapp"
@@ -77,6 +93,9 @@ const ChatWidget = () => {
         </Button>
       );
     }
+
+    // Limpa espaços extras deixados pela remoção dos marcadores
+    processedContent = processedContent.replace(/\n{3,}/g, "\n\n").trim();
 
     if (buttons.length > 0) {
       return (
