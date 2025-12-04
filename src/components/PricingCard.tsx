@@ -13,6 +13,7 @@ interface PricingCardProps {
   badge?: "bestseller" | "special" | "hot";
   firstPurchaseOnly?: boolean;
   featured?: boolean;
+  checkoutUrl?: string;
 }
 
 const PricingCard = ({
@@ -24,7 +25,8 @@ const PricingCard = ({
   sold,
   badge,
   firstPurchaseOnly,
-  featured
+  featured,
+  checkoutUrl
 }: PricingCardProps) => {
   const getBadgeContent = () => {
     switch (badge) {
@@ -114,6 +116,7 @@ const PricingCard = ({
 
       {/* CTA */}
       <Button 
+        onClick={() => checkoutUrl && window.open(checkoutUrl, '_blank')}
         className={`w-full py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-xl transition-all duration-300 ${
           featured
             ? "bg-gradient-to-r from-primary to-cyan-400 hover:opacity-90 text-white shadow-lg"
