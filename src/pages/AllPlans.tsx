@@ -12,8 +12,7 @@ const AllPlans = () => {
   const navigate = useNavigate();
 
   const plans = [
-    { credits: 30, official: 43.50, pro: 5.90, discount: 86, sold: 0, firstPurchase: true, hot: true },
-    { credits: 50, official: 72.50, pro: 9.90, discount: 86, sold: 56, firstPurchase: true },
+    { credits: 50, official: 72.50, pro: 9.90, discount: 86, sold: 56, firstPurchase: true, hot: true },
     { credits: 100, official: 145.00, pro: 19.90, discount: 86, sold: 26, firstPurchase: true },
     { credits: 200, official: 290.00, pro: 38.90, discount: 87, sold: 6 },
     { credits: 300, official: 435.00, pro: 56.90, discount: 87, sold: 1 },
