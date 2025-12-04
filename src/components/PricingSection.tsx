@@ -11,7 +11,9 @@ const PricingSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-7xl mx-auto">
-          <PricingCard credits={50} officialPrice={72.50} proPrice={9.90} savings={62.60} discount={86} sold={56} badge="bestseller" firstPurchaseOnly featured />
+          <PricingCard credits={30} officialPrice={43.50} proPrice={5.90} savings={37.60} discount={86} sold={0} badge="hot" firstPurchaseOnly featured />
+
+          <PricingCard credits={50} officialPrice={72.50} proPrice={9.90} savings={62.60} discount={86} sold={56} badge="bestseller" firstPurchaseOnly />
 
           <PricingCard credits={100} officialPrice={145.00} proPrice={19.90} savings={125.10} discount={86} sold={26} badge="special" firstPurchaseOnly />
 
@@ -20,8 +22,6 @@ const PricingSection = () => {
           <PricingCard credits={500} officialPrice={725.00} proPrice={93.90} savings={631.10} discount={87} sold={4} />
 
           <PricingCard credits={1000} officialPrice={1450.00} proPrice={186.90} savings={1263.10} discount={87} sold={9} />
-
-          <PricingCard credits={5000} officialPrice={7250.00} proPrice={934.90} savings={6315.10} discount={87} sold={0} badge="hot" />
         </div>
 
         {/* Ver todos os planos button */}
