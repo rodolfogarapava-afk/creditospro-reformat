@@ -13,14 +13,10 @@ const SYSTEM_PROMPT = `Você é o assistente virtual da LittleShark, especializa
 📋 INFORMAÇÕES SOBRE OS PLANOS E PREÇOS
 ═══════════════════════════════════════════════════
 
-🔥 30 Créditos (HOT - Primeira compra)
-Preço: R$ 5,90
-Economia: 86% OFF
-Ideal para testar o sistema
-
-⭐ 50 Créditos (Primeira compra)
+🔥 50 Créditos (HOT - Primeira compra)
 Preço: R$ 9,90
 Economia: 86% OFF
+Ideal para testar o sistema
 
 ⚡ 100 Créditos (Primeira compra)
 Preço: R$ 19,90
