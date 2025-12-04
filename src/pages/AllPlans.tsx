@@ -12,17 +12,17 @@ const AllPlans = () => {
   const navigate = useNavigate();
 
   const plans = [
-    { credits: 50, official: 72.50, pro: 9.90, discount: 86, sold: 56, firstPurchase: true, hot: true },
-    { credits: 100, official: 145.00, pro: 19.90, discount: 86, sold: 26, firstPurchase: true },
-    { credits: 200, official: 290.00, pro: 38.90, discount: 87, sold: 6 },
-    { credits: 300, official: 435.00, pro: 56.90, discount: 87, sold: 1 },
-    { credits: 400, official: 580.00, pro: 75.90, discount: 87, sold: 0 },
-    { credits: 500, official: 725.00, pro: 93.90, discount: 87, sold: 4 },
-    { credits: 600, official: 870.00, pro: 112.90, discount: 87, sold: 0 },
-    { credits: 700, official: 1015.00, pro: 130.90, discount: 87, sold: 0 },
-    { credits: 800, official: 1160.00, pro: 149.90, discount: 87, sold: 0 },
-    { credits: 900, official: 1305.00, pro: 167.90, discount: 87, sold: 0, contactOnly: true },
-    { credits: 1000, official: 1450.00, pro: 186.90, discount: 87, sold: 0, contactOnly: true },
+    { credits: 50, official: 72.50, pro: 9.90, discount: 86, sold: 56, firstPurchase: true, hot: true, checkoutUrl: "https://pix-lite-checkout.lovable.app/pay-1" },
+    { credits: 100, official: 145.00, pro: 19.90, discount: 86, sold: 26, firstPurchase: true, checkoutUrl: "https://pix-lite-checkout.lovable.app/pay-2" },
+    { credits: 200, official: 290.00, pro: 38.90, discount: 87, sold: 6, checkoutUrl: "https://pix-lite-checkout.lovable.app/pay-3" },
+    { credits: 300, official: 435.00, pro: 56.90, discount: 87, sold: 1, checkoutUrl: "https://pix-lite-checkout.lovable.app/pay-4" },
+    { credits: 400, official: 580.00, pro: 75.90, discount: 87, sold: 0, checkoutUrl: "https://pix-lite-checkout.lovable.app/pay-5" },
+    { credits: 500, official: 725.00, pro: 93.90, discount: 87, sold: 4, checkoutUrl: "https://pix-lite-checkout.lovable.app/pay-6" },
+    { credits: 600, official: 870.00, pro: 112.90, discount: 87, sold: 0, checkoutUrl: "https://pix-lite-checkout.lovable.app/pay-7" },
+    { credits: 700, official: 1015.00, pro: 130.90, discount: 87, sold: 0, checkoutUrl: "https://pix-lite-checkout.lovable.app/pay-8" },
+    { credits: 800, official: 1160.00, pro: 149.90, discount: 87, sold: 0, checkoutUrl: "https://pix-lite-checkout.lovable.app/pay-9" },
+    { credits: 900, official: 1305.00, pro: 167.90, discount: 87, sold: 0, checkoutUrl: "https://pix-lite-checkout.lovable.app/pay-10" },
+    { credits: 1000, official: 1450.00, pro: 186.90, discount: 87, sold: 0, checkoutUrl: "https://pix-lite-checkout.lovable.app/pay-11" },
     { credits: 2000, official: 2900.00, pro: 373.90, discount: 87, sold: 0, contactOnly: true },
     { credits: 3000, official: 4350.00, pro: 560.90, discount: 87, sold: 0, contactOnly: true },
     { credits: 4000, official: 5800.00, pro: 747.90, discount: 87, sold: 0, contactOnly: true },
@@ -116,7 +116,7 @@ const AllPlans = () => {
                 </div>
 
                 <Button
-                  onClick={handleContact}
+                  onClick={() => plan.checkoutUrl ? window.open(plan.checkoutUrl, '_blank') : handleContact()}
                   className="w-full bg-gradient-to-r from-primary to-cyan-400 hover:opacity-90"
                 >
                   {plan.contactOnly ? "Entre em contato" : "Comprar"}
@@ -195,7 +195,7 @@ const AllPlans = () => {
                             Entre em contato
                           </Button>
                         ) : (
-                          <Button onClick={handleContact} size="sm">
+                          <Button onClick={() => plan.checkoutUrl && window.open(plan.checkoutUrl, '_blank')} size="sm">
                             Comprar
                           </Button>
                         )}
