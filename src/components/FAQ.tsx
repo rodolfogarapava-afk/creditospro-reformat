@@ -125,7 +125,7 @@ const FAQ = ({ limit }: FAQProps) => {
               Ainda tem dúvidas? Estamos aqui para ajudar!
             </p>
             <a
-              href="https://wa.me/5511955784473?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20os%20créditos%20Lovable%20da%20LittleShark."
+              href="https://wa.me/5532997887529?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20os%20créditos%20Lovable%20da%20LittleShark."
               target="_blank"
               rel="noopener noreferrer"
             >
