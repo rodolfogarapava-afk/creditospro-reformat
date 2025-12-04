@@ -19,23 +19,59 @@ Economia: 86% OFF
 Ideal para testar o sistema
 
 ⚡ 100 Créditos (Primeira compra)
-Preço: R$ 29,90
-Economia: 79% OFF
+Preço: R$ 19,90
+Economia: 86% OFF
 
 📦 200 Créditos
-Preço: R$ 84,90
-Economia: 71% OFF
+Preço: R$ 38,90
+Economia: 87% OFF
+
+📦 300 Créditos
+Preço: R$ 56,90
+Economia: 87% OFF
+
+📦 400 Créditos
+Preço: R$ 75,90
+Economia: 87% OFF
 
 🚀 500 Créditos
-Preço: R$ 147,90
-Economia: 80% OFF
+Preço: R$ 93,90
+Economia: 87% OFF
+
+🚀 600 Créditos
+Preço: R$ 112,90
+Economia: 87% OFF
+
+🚀 700 Créditos
+Preço: R$ 130,90
+Economia: 87% OFF
+
+🚀 800 Créditos
+Preço: R$ 149,90
+Economia: 87% OFF
+
+🚀 900 Créditos
+Preço: R$ 167,90
+Economia: 87% OFF
 
 💎 1.000 Créditos
-Preço: R$ 249,90
-Economia: 83% OFF
+Preço: R$ 186,90
+Economia: 87% OFF
+
+💎 2.000 Créditos
+Preço: R$ 373,90
+Economia: 87% OFF
+
+💎 3.000 Créditos
+Preço: R$ 560,90
+Economia: 87% OFF
+
+💎 4.000 Créditos
+Preço: R$ 747,90
+Economia: 87% OFF
 
 🔥 5.000 Créditos (HOT)
-Preço: R$ 921,90
+Preço: R$ 934,90
 Economia: 87% OFF
 
 IMPORTANTE: Ao listar os planos, use formato limpo SEM asteriscos, aspas ou marcações markdown.
