@@ -1,8 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
-import { Menu, X } from "lucide-react";
+import { Menu } from "lucide-react";
 import { useState } from "react";
-import logoImage from "@/assets/littleshark-logo.png";
 interface MobileMenuProps {
   onNavigate: (sectionId: string) => void;
   onChatClick: () => void;

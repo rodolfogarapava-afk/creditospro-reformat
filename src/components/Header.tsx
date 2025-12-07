@@ -1,6 +1,5 @@
 import { Button } from "@/components/ui/button";
 import MobileMenu from "./MobileMenu";
-import logoImage from "@/assets/littleshark-logo.png";
 const Header = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
