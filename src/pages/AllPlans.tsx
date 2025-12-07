@@ -30,7 +30,7 @@ const AllPlans = () => {
   ];
 
   const handleContact = () => {
-    window.open('https://wa.me/5532997887529?text=Olá!%20Tenho%20interesse%20nos%20créditos%20Lovable.', '_blank');
+    window.open('https://wa.me/5511955784473?text=Olá!%20Tenho%20interesse%20nos%20créditos%20Lovable.', '_blank');
   };
 
   return (
@@ -102,7 +102,7 @@ const AllPlans = () => {
                     </span>
                   </div>
                   <div className="flex justify-between items-center">
-                    <span className="text-sm font-medium">Preço LittleShark:</span>
+                    <span className="text-sm font-medium">Nosso Preço:</span>
                     <span className="text-2xl font-bold text-primary">
                       R$ {plan.pro.toFixed(2).replace(".", ",")}
                     </span>
@@ -134,7 +134,7 @@ const AllPlans = () => {
                     <TableHead className="text-base md:text-lg font-semibold">Créditos</TableHead>
                     <TableHead className="text-base md:text-lg font-semibold">Preço Oficial</TableHead>
                     <TableHead className="text-base md:text-lg font-semibold">
-                      Preço LittleShark
+                      Nosso Preço
                     </TableHead>
                     <TableHead className="text-base md:text-lg font-semibold">Desconto</TableHead>
                     <TableHead className="text-base md:text-lg font-semibold">Vendas</TableHead>

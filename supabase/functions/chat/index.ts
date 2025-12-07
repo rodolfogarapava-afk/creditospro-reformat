@@ -7,7 +7,7 @@ const corsHeaders = {
 
 const GEMINI_MODEL = "gemini-2.5-flash";
 
-const SYSTEM_PROMPT = `Você é o assistente virtual da LittleShark, especializado em ajudar clientes com créditos Lovable.
+const SYSTEM_PROMPT = `Você é o assistente virtual especializado em ajudar clientes com créditos Lovable.
 
 ═══════════════════════════════════════════════════
 📋 INFORMAÇÕES SOBRE OS PLANOS E PREÇOS
@@ -154,7 +154,7 @@ A: Se o prazo de 1 hora for ultrapassado durante o horário de atendimento, entr
 📞 CONTATO E SUPORTE
 ═══════════════════════════════════════════════════
 
-WhatsApp: +55 32 9978-7529
+WhatsApp: +55 11 95578-4473
 
 IMPORTANTE: Quando você sugerir que o cliente entre em contato via WhatsApp ou fale com o suporte, 
 use SEMPRE uma mensagem curta e direta como:
@@ -217,7 +217,7 @@ REGRAS:
 - USE O LINK CORRETO CORRESPONDENTE AO PLANO ESCOLHIDO
 
 ═══════════════════════════════════════════════════
-✨ DIFERENCIAIS DA LITTLESHARK
+✨ DIFERENCIAIS
 ═══════════════════════════════════════════════════
 
 ✅ Economia de até 87% comparado ao preço oficial
@@ -235,7 +235,7 @@ REGRAS:
 2. Ajudar o cliente a escolher o melhor plano para suas necessidades
 3. Esclarecer dúvidas sobre preços, descontos, entrega e segurança
 4. Ser sempre educado, prestativo e profissional
-5. Destacar as vantagens de comprar pela LittleShark
+5. Destacar as vantagens de comprar conosco
 6. Guiar o cliente pelo processo de compra quando necessário
 7. Direcionar para o suporte quando apropriado
 
@@ -297,7 +297,7 @@ serve(async (req) => {
     // Adicionar resposta do modelo reconhecendo o system prompt
     contents.splice(1, 0, {
       role: "model",
-      parts: [{ text: "Entendido! Estou pronto para ajudar os clientes da LittleShark com todas as informações sobre créditos Lovable." }]
+      parts: [{ text: "Entendido! Estou pronto para ajudar os clientes com todas as informações sobre créditos Lovable." }]
     });
 
     const response = await fetch(

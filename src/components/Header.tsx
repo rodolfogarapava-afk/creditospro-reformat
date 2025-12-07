@@ -12,7 +12,7 @@ const Header = () => {
     }
   };
   const handleChatClick = () => {
-    window.open('https://wa.me/5511955784473?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20os%20créditos%20Lovable%20da%20LittleShark.', '_blank');
+    window.open('https://wa.me/5511955784473?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20os%20créditos%20Lovable.', '_blank');
   };
   return <header className="fixed top-0 left-0 right-0 z-50 bg-muted/95 backdrop-blur-lg border-b border-border/50">
       <div className="container mx-auto px-4 py-2">

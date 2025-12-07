@@ -16,7 +16,7 @@ const AllPlansHeader = () => {
   };
 
   const handleChatClick = () => {
-    window.open('https://wa.me/5511955784473?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20os%20créditos%20Lovable%20da%20LittleShark.', '_blank');
+    window.open('https://wa.me/5511955784473?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20os%20créditos%20Lovable.', '_blank');
   };
 
   return (
@@ -30,7 +30,7 @@ const AllPlansHeader = () => {
           >
             <img 
               src="/lovable-uploads/2398500c-88af-48fa-9e62-1e0207919f09.png" 
-              alt="LittleShark Logo" 
+              alt="Logo" 
               className="h-14 w-auto"
             />
           </button>

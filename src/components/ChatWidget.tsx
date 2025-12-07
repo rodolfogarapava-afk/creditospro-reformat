@@ -10,7 +10,7 @@ type Message = { role: "user" | "assistant"; content: string };
 const ChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { role: "assistant", content: "Olá! 👋 Sou o assistente virtual da LittleShark. Como posso ajudar você hoje?" }
+    { role: "assistant", content: "Olá! 👋 Sou o assistente virtual. Como posso ajudar você hoje?" }
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -24,8 +24,8 @@ const ChatWidget = () => {
     { label: "Falar com Suporte", action: "whatsapp" },
   ];
 
-  const WHATSAPP_NUMBER = "553299787529";
-  const WHATSAPP_MESSAGE = "Olá! Tenho uma dúvida sobre os créditos Lovable da LittleShark.";
+  const WHATSAPP_NUMBER = "5511955784473";
+  const WHATSAPP_MESSAGE = "Olá! Tenho uma dúvida sobre os créditos Lovable.";
 
   useEffect(() => {
     if (scrollAreaRef.current) {
