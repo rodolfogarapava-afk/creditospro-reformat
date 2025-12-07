@@ -13,7 +13,7 @@ const HowItWorks = () => {
             Como Funciona
           </h2>
           <p className="text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
-            Entenda de forma simples como a LittleShark opera.
+            Entenda de forma simples como funciona.
           </p>
         </div>
 
@@ -22,7 +22,7 @@ const HowItWorks = () => {
           <div>
             <h3 className="text-2xl sm:text-3xl font-bold mb-4 md:mb-6 px-2">Como funciona a compra de créditos</h3>
             <p className="text-base sm:text-lg text-muted-foreground leading-relaxed px-2">
-              A LittleShark permite comprar créditos para usar em projetos Lovable com preços reduzidos. 
+              Aqui você pode comprar créditos para usar em projetos Lovable com preços reduzidos. 
               A compra é realizada através de um checkout externo que você escolherá posteriormente. 
               Após o pagamento, os créditos são entregues manualmente em até alguns minutos, 
               dependendo do fluxo de atendimento.
@@ -45,7 +45,7 @@ const HowItWorks = () => {
                 <div className="absolute top-4 right-4">
                   <TrendingDown className="w-6 h-6 text-success" />
                 </div>
-                <p className="text-sm text-primary font-semibold mb-2">Preço LittleShark</p>
+                <p className="text-sm text-primary font-semibold mb-2">Nosso Preço</p>
                 <p className="text-2xl font-semibold mb-4">100 créditos</p>
                 <p className="text-5xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent mb-2">
                   R$ 29,90
