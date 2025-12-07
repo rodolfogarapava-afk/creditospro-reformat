@@ -39,7 +39,6 @@ const HowItWorks = () => {
                 <p className="text-5xl font-bold text-muted-foreground line-through mb-2">
                   R$ 145,00
                 </p>
-                <p className="text-sm text-muted-foreground">R$ 1,45/crédito</p>
               </div>
               
               <div className="rounded-2xl border-2 border-primary bg-gradient-to-br from-primary/5 to-cyan-400/5 p-8 text-center relative overflow-hidden shadow-lg">
@@ -49,11 +48,10 @@ const HowItWorks = () => {
                 <p className="text-sm text-primary font-semibold mb-2">Nosso Preço</p>
                 <p className="text-2xl font-semibold mb-4">100 créditos</p>
                 <p className="text-5xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent mb-2">
-                  R$ 40,90
+                  R$ 29,90
                 </p>
-                <p className="text-sm text-muted-foreground mb-2">R$ 0,41/crédito</p>
                 <div className="inline-block px-4 py-2 rounded-full bg-success/10 border border-success/20">
-                  <p className="text-sm text-success font-bold">Economia de 72%</p>
+                  <p className="text-sm text-success font-bold">Economia de 79%</p>
                 </div>
               </div>
             </div>

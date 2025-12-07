@@ -1,26 +1,28 @@
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Check, Flame, Star, Zap, TrendingDown, Sparkles } from "lucide-react";
+import { Check, Flame, Star, Zap } from "lucide-react";
 import heartIcon from "@/assets/heart-gradient.png";
 
 interface PricingCardProps {
   credits: number;
+  officialPrice: number;
   proPrice: number;
-  perCredit: number;
-  badge?: "bestseller" | "special" | "hot" | "economy";
+  savings: number;
+  discount: number;
+  sold: number;
+  badge?: "bestseller" | "special" | "hot";
   firstPurchaseOnly?: boolean;
   featured?: boolean;
   checkoutUrl?: string;
-  officialPrice?: number;
-  savings?: number;
-  discount?: number;
-  sold?: number;
 }
 
 const PricingCard = ({
   credits,
+  officialPrice,
   proPrice,
-  perCredit,
+  savings,
+  discount,
+  sold,
   badge,
   firstPurchaseOnly,
   featured,
@@ -30,30 +32,23 @@ const PricingCard = ({
     switch (badge) {
       case "bestseller":
         return (
-          <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-orange-500 to-red-500 text-white border-0 px-3 py-1">
+          <Badge className="absolute -top-3 -right-3 bg-gradient-to-r from-accent to-orange-500 text-white border-0 px-3 py-1">
             <Star className="w-3 h-3 mr-1" />
             MAIS VENDIDO
           </Badge>
         );
       case "special":
         return (
-          <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-500 to-violet-500 text-white border-0 px-3 py-1">
+          <Badge className="absolute -top-3 -right-3 bg-gradient-to-r from-accent to-orange-500 text-white border-0 px-3 py-1">
             <Zap className="w-3 h-3 mr-1" />
-            MELHOR CUSTO
+            OFERTA ESPECIAL
           </Badge>
         );
       case "hot":
         return (
-          <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-500 to-pink-500 text-white border-0 px-3 py-1">
-            <Sparkles className="w-3 h-3 mr-1" />
-            1ª COMPRA
-          </Badge>
-        );
-      case "economy":
-        return (
-          <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-purple-500 to-violet-500 text-white border-0 px-3 py-1">
-            <TrendingDown className="w-3 h-3 mr-1" />
-            MÁXIMA ECONOMIA
+          <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-red-500 to-accent text-white border-0 px-3 py-1">
+            <Flame className="w-3 h-3 mr-1" />
+            HOT
           </Badge>
         );
       default:
@@ -66,33 +61,57 @@ const PricingCard = ({
       className={`relative rounded-2xl border-2 p-4 sm:p-6 transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
         featured
           ? "border-primary bg-gradient-to-br from-primary/5 to-cyan-400/5 shadow-lg md:scale-105"
-          : badge === "bestseller"
-          ? "border-orange-500 bg-orange-50 dark:bg-orange-950/20"
           : "border-border bg-card hover:border-primary/50"
       }`}
     >
       {getBadgeContent()}
+      
+      {/* Discount badge */}
+      <div className="inline-block px-3 py-1 rounded-full bg-success/10 border border-success/20 mb-4">
+        <span className="text-sm font-bold text-success">{discount}% OFF</span>
+      </div>
 
       {/* Credits */}
-      <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-2 mt-4 flex items-center gap-2">
-        <img src={heartIcon} alt="heart" className="w-6 h-6" />
+      <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
         {credits.toLocaleString("pt-BR")} Créditos
       </h3>
 
       {firstPurchaseOnly && (
-        <p className="text-xs sm:text-sm text-muted-foreground mb-4">Apenas 1ª compra</p>
+        <p className="text-xs sm:text-sm text-muted-foreground mb-4">Válido apenas na primeira compra</p>
       )}
 
       {/* Prices */}
       <div className="space-y-4 mb-6">
         <div>
+          <p className="text-xs text-muted-foreground mb-1 flex items-center gap-1">
+            Preço oficial <img src={heartIcon} alt="heart" className="w-4 h-4 inline-block" />
+          </p>
+          <p className="text-lg text-muted-foreground line-through">
+            R$ {officialPrice.toFixed(2).replace(".", ",")}
+          </p>
+        </div>
+
+        <div>
+          <p className="text-xs text-muted-foreground mb-1 flex items-center gap-1">
+            Nosso Preço 🎯
+          </p>
           <p className="text-3xl sm:text-4xl font-bold bg-gradient-to-r from-primary to-cyan-400 bg-clip-text text-transparent">
             R$ {proPrice.toFixed(2).replace(".", ",")}
           </p>
-          <p className="text-sm text-muted-foreground mt-1">
-            R$ {perCredit.toFixed(2).replace(".", ",")}/crédito
+        </div>
+
+        <div className="flex items-center gap-2 p-3 rounded-lg bg-success/10 border border-success/20">
+          <Check className="w-4 h-4 text-success flex-shrink-0" />
+          <p className="text-sm font-medium text-success">
+            Você economiza: R$ {savings.toFixed(2).replace(".", ",")}
           </p>
         </div>
+      </div>
+
+      {/* Stats */}
+      <div className="flex items-center justify-between mb-6 text-sm">
+        <span className="text-muted-foreground">+{sold} Vendido(s)</span>
+        <span className="text-success font-medium">+Estoque ilimitado</span>
       </div>
 
       {/* CTA */}
@@ -101,25 +120,11 @@ const PricingCard = ({
         className={`w-full py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-xl transition-all duration-300 ${
           featured
             ? "bg-gradient-to-r from-primary to-cyan-400 hover:opacity-90 text-white shadow-lg"
-            : badge === "bestseller"
-            ? "bg-gradient-to-r from-orange-500 to-red-500 hover:opacity-90 text-white"
-            : "bg-foreground hover:bg-foreground/90 text-background"
+            : "bg-primary hover:bg-primary/90 text-primary-foreground"
         }`}
       >
         Selecionar
       </Button>
-
-      {/* Features */}
-      <div className="mt-4 space-y-2 text-sm text-muted-foreground">
-        <p className="flex items-center gap-2">
-          <Check className="w-4 h-4 text-success" />
-          Entrega em até 45min
-        </p>
-        <p className="flex items-center gap-2">
-          <Check className="w-4 h-4 text-success" />
-          Suporte via chat
-        </p>
-      </div>
     </div>
   );
 };
