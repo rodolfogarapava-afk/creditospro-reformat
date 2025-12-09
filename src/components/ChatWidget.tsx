@@ -70,7 +70,7 @@ const ChatWidget = () => {
         <Button
           key={`payment-${buttons.length}`}
           onClick={() => window.open(url, "_blank")}
-          className="w-full bg-gradient-to-r from-red-500 to-cyan-500 hover:from-red-600 hover:to-cyan-600 text-white font-semibold py-3 rounded-xl shadow-md"
+          className="w-full bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-700 text-white font-semibold py-3 rounded-xl shadow-md"
         >
           💳 Finalizar Compra
         </Button>
@@ -232,7 +232,7 @@ const ChatWidget = () => {
       {isOpen && (
         <div className="fixed bottom-0 right-0 md:bottom-24 md:right-6 w-full h-full md:w-[380px] md:h-[500px] bg-background border-0 md:border md:border-border md:rounded-2xl shadow-2xl flex flex-col z-50 animate-scale-in">
           {/* Header */}
-          <div className="flex items-center justify-between p-4 border-b bg-gradient-to-r from-red-500 to-cyan-500 text-white md:rounded-t-2xl">
+          <div className="flex items-center justify-between p-4 border-b bg-gradient-to-r from-primary to-blue-600 text-white md:rounded-t-2xl">
             <div className="flex items-center gap-2">
               <MessageCircle className="h-5 w-5" />
               <span className="font-semibold">Assistente Virtual</span>
@@ -258,7 +258,7 @@ const ChatWidget = () => {
                   <div
                     className={`max-w-[80%] rounded-2xl px-4 py-2 ${
                       msg.role === "user"
-                        ? "bg-gradient-to-r from-red-500 to-cyan-500 text-white"
+                        ? "bg-gradient-to-r from-primary to-blue-600 text-white"
                         : "bg-muted"
                     }`}
                   >
@@ -326,7 +326,7 @@ const ChatWidget = () => {
       {!isOpen && (
         <Button
           onClick={() => setIsOpen(true)}
-          className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-2xl hover:scale-110 transition-transform z-50 bg-gradient-to-r from-red-500 to-cyan-500 hover:from-red-600 hover:to-cyan-600"
+          className="fixed bottom-6 right-6 h-14 w-14 rounded-full shadow-2xl hover:scale-110 transition-transform z-50 bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-700"
           size="icon"
         >
           <MessageCircle className="h-6 w-6" />
