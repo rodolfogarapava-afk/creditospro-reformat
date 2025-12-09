@@ -30,8 +30,8 @@ const AllPlansHeader = () => {
           >
             <img 
               src="/lovable-uploads/2398500c-88af-48fa-9e62-1e0207919f09.png" 
-              alt="Logo" 
-              className="h-14 w-auto"
+              alt="Créditos Fácil" 
+              className="h-10 md:h-12 w-auto"
             />
           </button>
           
