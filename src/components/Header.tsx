@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import MobileMenu from "./MobileMenu";
+import logoImage from "@/assets/logo-creditosfacil.png";
 const Header = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId);
@@ -18,7 +19,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <button onClick={() => scrollToSection('hero')} className="flex items-center gap-2 cursor-pointer">
-            
+            <img src={logoImage} alt="CréditosFácil" className="h-10 md:h-12 w-auto" />
           </button>
           
           {/* Desktop Navigation */}
