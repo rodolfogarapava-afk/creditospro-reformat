@@ -11,17 +11,17 @@ const PricingSection = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 max-w-7xl mx-auto">
-          <PricingCard credits={50} officialPrice={72.50} proPrice={9.90} savings={62.60} discount={86} sold={56} badge="hot" firstPurchaseOnly featured checkoutUrl="https://pix-lite-checkout.lovable.app/pay-1" />
+          <PricingCard credits={100} officialPrice={145.00} proPrice={9.90} savings={135.10} discount={93} sold={56} badge="hot" firstPurchaseOnly featured checkoutUrl="https://pix-lite-checkout.lovable.app/pay-1" />
 
-          <PricingCard credits={100} officialPrice={145.00} proPrice={19.90} savings={125.10} discount={86} sold={26} badge="special" firstPurchaseOnly checkoutUrl="https://pix-lite-checkout.lovable.app/pay-2" />
+          <PricingCard credits={200} officialPrice={290.00} proPrice={18.90} savings={271.10} discount={93} sold={26} badge="special" firstPurchaseOnly checkoutUrl="https://pix-lite-checkout.lovable.app/pay-2" />
 
-          <PricingCard credits={200} officialPrice={290.00} proPrice={38.90} savings={251.10} discount={87} sold={6} checkoutUrl="https://pix-lite-checkout.lovable.app/pay-3" />
+          <PricingCard credits={500} officialPrice={725.00} proPrice={45.90} savings={679.10} discount={94} sold={6} checkoutUrl="https://pix-lite-checkout.lovable.app/pay-5" />
 
-          <PricingCard credits={500} officialPrice={725.00} proPrice={93.90} savings={631.10} discount={87} sold={4} checkoutUrl="https://pix-lite-checkout.lovable.app/pay-6" />
+          <PricingCard credits={1000} officialPrice={1450.00} proPrice={89.90} savings={1360.10} discount={94} sold={4} checkoutUrl="https://pix-lite-checkout.lovable.app/pay-10" />
 
-          <PricingCard credits={1000} officialPrice={1450.00} proPrice={186.90} savings={1263.10} discount={87} sold={9} checkoutUrl="https://pix-lite-checkout.lovable.app/pay-11" />
+          <PricingCard credits={2000} officialPrice={2900.00} proPrice={176.90} savings={2723.10} discount={94} sold={9} checkoutUrl="https://pix-lite-checkout.lovable.app/pay-11" />
 
-          <PricingCard credits={5000} officialPrice={7250.00} proPrice={934.90} savings={6315.10} discount={87} sold={0} badge="bestseller" />
+          <PricingCard credits={5000} officialPrice={7250.00} proPrice={439.90} savings={6810.10} discount={94} sold={0} badge="bestseller" checkoutUrl="https://pix-lite-checkout.lovable.app/pay-14" />
         </div>
 
         {/* Ver todos os planos button */}
