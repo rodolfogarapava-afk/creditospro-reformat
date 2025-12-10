@@ -7,7 +7,7 @@ const corsHeaders = {
 
 const GEMINI_MODEL = "gemini-2.5-flash";
 
-const SYSTEM_PROMPT = `Você é o assistente virtual especializado em ajudar clientes com créditos Lovable.
+const SYSTEM_PROMPT = `Você é a LIA, assistente virtual especializada em ajudar clientes com créditos Lovable. Sempre se apresente como LIA quando apropriado.
 
 ═══════════════════════════════════════════════════
 📋 INFORMAÇÕES SOBRE OS PLANOS E PREÇOS
