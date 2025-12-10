@@ -20,8 +20,6 @@ const ChatWidget = () => {
   const quickActions = [
     { label: "Ver Planos", action: "Quais são os planos disponíveis e seus preços?" },
     { label: "Como Funciona", action: "Como funciona o processo de compra?" },
-    { label: "Horário", action: "Qual é o horário de atendimento?" },
-    { label: "Falar com Suporte", action: "whatsapp" },
   ];
 
   const WHATSAPP_NUMBER = "5511955784473";
