@@ -11,7 +11,7 @@ const STORE_ID = "019b0963-c219-757e-b3a6-3e5b55bcd923";
 // Map credits to product IDs - update these with real product IDs
 const PRODUCT_MAP: Record<number, string> = {
   100: "019b0964-f923-712b-b8e1-45bef4f3256f",
-  200: "019b0964-f923-712b-b8e1-45bef4f3256f",
+  200: "019b0965-4d0a-7391-a54b-cb02d21a8c6d",
   300: "019b0964-f923-712b-b8e1-45bef4f3256f",
   400: "019b0964-f923-712b-b8e1-45bef4f3256f",
   500: "019b0964-f923-712b-b8e1-45bef4f3256f",
