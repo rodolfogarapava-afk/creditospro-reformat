@@ -3,8 +3,9 @@ import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Copy, Check, Clock, QrCode, ArrowLeft, Loader2 } from "lucide-react";
+import { Copy, Check, Clock, ArrowLeft, Loader2, QrCode } from "lucide-react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
 
 interface PixCheckoutProps {
   isOpen: boolean;
@@ -15,16 +16,20 @@ interface PixCheckoutProps {
 
 type CheckoutStep = "form" | "payment";
 
+interface PixData {
+  qrCode: string;
+  qrCodeBase64: string;
+  expiresAt: string;
+}
+
 const PixCheckout = ({ isOpen, onClose, credits, price }: PixCheckoutProps) => {
   const [step, setStep] = useState<CheckoutStep>("form");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [copied, setCopied] = useState(false);
-  const [timeLeft, setTimeLeft] = useState(15 * 60); // 15 minutes in seconds
-
-  // Mock PIX code - will be replaced with real API
-  const pixCode = "00020126580014br.gov.bcb.pix0136a1b2c3d4-e5f6-7890-abcd-ef1234567890520400005303986540510.005802BR5925CREDITOS FACIL LTDA6009SAO PAULO62070503***6304ABCD";
+  const [timeLeft, setTimeLeft] = useState(15 * 60);
+  const [pixData, setPixData] = useState<PixData | null>(null);
 
   // Timer countdown
   useEffect(() => {
@@ -64,16 +69,52 @@ const PixCheckout = ({ isOpen, onClose, credits, price }: PixCheckoutProps) => {
     }
 
     setIsLoading(true);
-    // Simulate API call - will be replaced with real PIX generation
-    await new Promise((resolve) => setTimeout(resolve, 1500));
-    setIsLoading(false);
-    setTimeLeft(15 * 60);
-    setStep("payment");
+    
+    try {
+      const { data, error } = await supabase.functions.invoke("create-pix", {
+        body: { name, email, credits },
+      });
+
+      if (error) {
+        throw new Error(error.message);
+      }
+
+      console.log("PIX response:", data);
+
+      // Extract PIX data from response - adjust based on actual API response structure
+      if (data?.payment?.pix) {
+        setPixData({
+          qrCode: data.payment.pix.qrCode || data.payment.pix.code || "",
+          qrCodeBase64: data.payment.pix.qrCodeBase64 || data.payment.pix.qrcode || "",
+          expiresAt: data.payment.pix.expiresAt || "",
+        });
+      } else if (data?.pix) {
+        setPixData({
+          qrCode: data.pix.qrCode || data.pix.code || "",
+          qrCodeBase64: data.pix.qrCodeBase64 || data.pix.qrcode || "",
+          expiresAt: data.pix.expiresAt || "",
+        });
+      }
+
+      setTimeLeft(15 * 60);
+      setStep("payment");
+    } catch (error) {
+      console.error("Error creating PIX:", error);
+      toast.error("Erro ao gerar PIX. Tente novamente.");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleCopyCode = async () => {
+    const codeToCopy = pixData?.qrCode || "";
+    if (!codeToCopy) {
+      toast.error("Código PIX não disponível");
+      return;
+    }
+    
     try {
-      await navigator.clipboard.writeText(pixCode);
+      await navigator.clipboard.writeText(codeToCopy);
       setCopied(true);
       toast.success("Código PIX copiado!");
       setTimeout(() => setCopied(false), 3000);
@@ -88,6 +129,7 @@ const PixCheckout = ({ isOpen, onClose, credits, price }: PixCheckoutProps) => {
     setEmail("");
     setCopied(false);
     setTimeLeft(15 * 60);
+    setPixData(null);
     onClose();
   };
 
@@ -199,10 +241,17 @@ const PixCheckout = ({ isOpen, onClose, credits, price }: PixCheckoutProps) => {
               {/* QR Code Area */}
               <div className="flex flex-col items-center">
                 <div className="bg-white p-4 rounded-2xl shadow-lg border border-border">
-                  {/* Placeholder QR Code - will be replaced with real QR */}
-                  <div className="w-48 h-48 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center">
-                    <QrCode className="w-32 h-32 text-gray-400" />
-                  </div>
+                  {pixData?.qrCodeBase64 ? (
+                    <img
+                      src={pixData.qrCodeBase64.startsWith("data:") ? pixData.qrCodeBase64 : `data:image/png;base64,${pixData.qrCodeBase64}`}
+                      alt="QR Code PIX"
+                      className="w-48 h-48 rounded-xl"
+                    />
+                  ) : (
+                    <div className="w-48 h-48 bg-gradient-to-br from-gray-100 to-gray-200 rounded-xl flex items-center justify-center">
+                      <QrCode className="w-32 h-32 text-gray-400" />
+                    </div>
+                  )}
                 </div>
                 <p className="text-sm text-muted-foreground mt-3">
                   Escaneie o QR Code com seu app de banco
@@ -214,7 +263,7 @@ const PixCheckout = ({ isOpen, onClose, credits, price }: PixCheckoutProps) => {
                 <Label className="text-foreground text-sm">Ou copie o código PIX:</Label>
                 <div className="relative">
                   <Input
-                    value={pixCode}
+                    value={pixData?.qrCode || ""}
                     readOnly
                     className="h-12 pr-24 bg-muted/50 border-border text-xs font-mono"
                   />
