@@ -4,16 +4,20 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { useToast } from "@/hooks/use-toast";
+import PixCheckout from "./PixCheckout";
 
 type Message = { role: "user" | "assistant"; content: string };
 
 const ChatWidget = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { role: "assistant", content: "Olá! 👋 Sou o assistente virtual. Como posso ajudar você hoje?" }
+    { role: "assistant", content: "Olá! 👋 Sou a LIA, assistente virtual da CréditosFácil. Como posso ajudar você hoje?" }
   ]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [checkoutOpen, setCheckoutOpen] = useState(false);
+  const [checkoutCredits, setCheckoutCredits] = useState(0);
+  const [checkoutPrice, setCheckoutPrice] = useState(0);
   const scrollAreaRef = useRef<HTMLDivElement>(null);
   const { toast } = useToast();
 
@@ -43,22 +47,47 @@ const ChatWidget = () => {
     streamChat(userMessage);
   };
 
+  const handleOpenCheckout = (credits: number, price: number) => {
+    setCheckoutCredits(credits);
+    setCheckoutPrice(price);
+    setCheckoutOpen(true);
+  };
+
   const renderMessageContent = (content: string) => {
     let processedContent = content;
     const buttons: JSX.Element[] = [];
 
+    // Processa marcadores de checkout interno [CHECKOUT:credits:price]
+    const checkoutRegex = /\[CHECKOUT:(\d+):([0-9.,]+)\]/gi;
+    let checkoutMatch;
+    
+    while ((checkoutMatch = checkoutRegex.exec(processedContent)) !== null) {
+      const credits = parseInt(checkoutMatch[1]);
+      const price = parseFloat(checkoutMatch[2].replace(",", "."));
+      buttons.push(
+        <Button
+          key={`checkout-${buttons.length}`}
+          onClick={() => handleOpenCheckout(credits, price)}
+          className="w-full bg-gradient-to-r from-primary to-blue-600 hover:from-primary/90 hover:to-blue-700 text-white font-semibold py-3 rounded-xl shadow-md"
+        >
+          💳 Comprar {credits} Créditos - R$ {price.toFixed(2).replace(".", ",")}
+        </Button>
+      );
+    }
+    
+    // Remove marcadores de checkout do texto
+    processedContent = processedContent.replace(/\[CHECKOUT:[^\]]+\]/gi, "");
+
     // Remove quebras de linha dentro do marcador para garantir que funcione
-    // Primeiro, normaliza o conteúdo removendo quebras de linha dentro de marcadores
     processedContent = processedContent.replace(
       /\[BOTAO_PAGAMENTO:[\s\n]*(https?:\/\/[^\]]+?)[\s\n]*\]/gi,
       (match, url) => {
-        // Remove qualquer whitespace/newlines da URL capturada
         const cleanUrl = url.replace(/[\s\n]/g, '');
         return `[BOTAO_PAGAMENTO:${cleanUrl}]`;
       }
     );
 
-    // Agora processa os botões de pagamento normalizados
+    // Processa botões de pagamento externos (fallback)
     const paymentRegex = /\[BOTAO_PAGAMENTO:(https?:\/\/[^\]]+)\]/gi;
     let paymentMatch;
     
@@ -75,10 +104,9 @@ const ChatWidget = () => {
       );
     }
     
-    // Remove todos os marcadores de pagamento do texto
     processedContent = processedContent.replace(/\[BOTAO_PAGAMENTO:[^\]]+\]/gi, "");
 
-    // Detecta se há marcador de botão WhatsApp
+    // Detecta marcador de botão WhatsApp
     if (processedContent.includes("[BOTAO_WHATSAPP]")) {
       processedContent = processedContent.replace(/\[BOTAO_WHATSAPP\]/gi, "");
       buttons.push(
@@ -92,7 +120,6 @@ const ChatWidget = () => {
       );
     }
 
-    // Limpa espaços extras deixados pela remoção dos marcadores
     processedContent = processedContent.replace(/\n{3,}/g, "\n\n").trim();
 
     if (buttons.length > 0) {
@@ -330,6 +357,14 @@ const ChatWidget = () => {
           <MessageCircle className="h-6 w-6" />
         </Button>
       )}
+
+      {/* PIX Checkout Modal */}
+      <PixCheckout
+        isOpen={checkoutOpen}
+        onClose={() => setCheckoutOpen(false)}
+        credits={checkoutCredits}
+        price={checkoutPrice}
+      />
     </>
   );
 };
