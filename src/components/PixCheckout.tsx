@@ -59,7 +59,7 @@ const PixCheckout = ({ isOpen, onClose, credits, price }: PixCheckoutProps) => {
   const handleSubmitForm = async (e: React.FormEvent) => {
     e.preventDefault();
     
-    if (!name.trim() || !email.trim()) {
+    if (!name.trim() || !email.trim() || !inviteCode.trim()) {
       toast.error("Preencha todos os campos");
       return;
     }
