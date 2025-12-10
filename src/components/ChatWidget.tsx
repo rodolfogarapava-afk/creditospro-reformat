@@ -291,22 +291,6 @@ const ChatWidget = () => {
                     </div>
                   </div>
                   
-                  {/* Show quick actions after first assistant message */}
-                  {idx === 0 && msg.role === "assistant" && messages.length === 1 && (
-                    <div className="mt-4 grid grid-cols-2 gap-3">
-                      {quickActions.map((qa, qaIdx) => (
-                        <Button
-                          key={qaIdx}
-                          variant="outline"
-                          onClick={() => handleQuickAction(qa.action)}
-                          disabled={isLoading}
-                          className="text-sm h-auto py-3 px-4 whitespace-normal text-left justify-start font-medium hover:bg-primary/5 hover:border-primary/50 transition-all hover:scale-105"
-                        >
-                          {qa.label}
-                        </Button>
-                      ))}
-                    </div>
-                  )}
                 </div>
               ))}
               {isLoading && (
@@ -324,7 +308,23 @@ const ChatWidget = () => {
           </ScrollArea>
 
           {/* Input */}
-          <div className="p-4 border-t">
+          <div className="p-4 border-t space-y-3">
+            {/* Quick actions near input */}
+            {messages.length === 1 && (
+              <div className="grid grid-cols-2 gap-2">
+                {quickActions.map((qa, qaIdx) => (
+                  <Button
+                    key={qaIdx}
+                    variant="outline"
+                    onClick={() => handleQuickAction(qa.action)}
+                    disabled={isLoading}
+                    className="text-xs h-auto py-2 px-3 whitespace-normal text-left justify-start font-medium hover:bg-primary/5 hover:border-primary/50 transition-all"
+                  >
+                    {qa.label}
+                  </Button>
+                ))}
+              </div>
+            )}
             <div className="flex gap-2">
               <Input
                 value={input}
