@@ -81,19 +81,16 @@ const PixCheckout = ({ isOpen, onClose, credits, price }: PixCheckoutProps) => {
 
       console.log("PIX response:", data);
 
-      // Extract PIX data from response - adjust based on actual API response structure
-      if (data?.payment?.pix) {
+      // Extract PIX data from Sharpify API response
+      const pixGatewayData = data?.order?.payment?.gateway?.data;
+      if (pixGatewayData) {
         setPixData({
-          qrCode: data.payment.pix.qrCode || data.payment.pix.code || "",
-          qrCodeBase64: data.payment.pix.qrCodeBase64 || data.payment.pix.qrcode || "",
-          expiresAt: data.payment.pix.expiresAt || "",
+          qrCode: pixGatewayData.code || "",
+          qrCodeBase64: pixGatewayData.qrCode || "",
+          expiresAt: data?.order?.payment?.gateway?.expirationDate || "",
         });
-      } else if (data?.pix) {
-        setPixData({
-          qrCode: data.pix.qrCode || data.pix.code || "",
-          qrCodeBase64: data.pix.qrCodeBase64 || data.pix.qrcode || "",
-          expiresAt: data.pix.expiresAt || "",
-        });
+      } else {
+        throw new Error("Dados do PIX não encontrados na resposta");
       }
 
       setTimeLeft(15 * 60);
