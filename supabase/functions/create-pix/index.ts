@@ -21,7 +21,7 @@ const PRODUCT_MAP: Record<number, string> = {
   900: "019b0966-af41-75fe-aca0-bcfae2eeb6d7",
   1000: "019b0966-f0e2-7bef-aa6c-fd1ea1d3e0b6",
   2000: "019b0967-22db-7370-94a7-3edb5a51dab4",
-  3000: "019b0964-f923-712b-b8e1-45bef4f3256f",
+  3000: "019b0967-5d5e-7c40-93ee-6e104904b89e",
   4000: "019b0964-f923-712b-b8e1-45bef4f3256f",
   5000: "019b0964-f923-712b-b8e1-45bef4f3256f",
 };
