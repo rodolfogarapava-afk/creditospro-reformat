@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
 import { Badge } from "@/components/ui/badge";
@@ -6,27 +7,37 @@ import { useNavigate } from "react-router-dom";
 import AllPlansHeader from "@/components/AllPlansHeader";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ChatWidget from "@/components/ChatWidget";
+import PixCheckout from "@/components/PixCheckout";
 import heartIcon from "@/assets/heart-gradient.png";
 
 const AllPlans = () => {
   const navigate = useNavigate();
+  const [checkoutOpen, setCheckoutOpen] = useState(false);
+  const [selectedCredits, setSelectedCredits] = useState(0);
+  const [selectedPrice, setSelectedPrice] = useState(0);
 
   const plans = [
-    { credits: 100, official: 145.00, pro: 9.90, discount: 93, sold: 56, firstPurchase: true, hot: true, checkoutUrl: "https://pix-lite-checkout.lovable.app/pay-1" },
-    { credits: 200, official: 290.00, pro: 18.90, discount: 93, sold: 26, firstPurchase: true, checkoutUrl: "https://pix-lite-checkout.lovable.app/pay-2" },
-    { credits: 300, official: 435.00, pro: 27.90, discount: 94, sold: 6, checkoutUrl: "https://pix-lite-checkout.lovable.app/pay-3" },
-    { credits: 400, official: 580.00, pro: 36.90, discount: 94, sold: 1, checkoutUrl: "https://pix-lite-checkout.lovable.app/pay-4" },
-    { credits: 500, official: 725.00, pro: 45.90, discount: 94, sold: 4, checkoutUrl: "https://pix-lite-checkout.lovable.app/pay-5" },
-    { credits: 600, official: 870.00, pro: 54.90, discount: 94, sold: 0, checkoutUrl: "https://pix-lite-checkout.lovable.app/pay-6" },
-    { credits: 700, official: 1015.00, pro: 63.90, discount: 94, sold: 0, checkoutUrl: "https://pix-lite-checkout.lovable.app/pay-7" },
-    { credits: 800, official: 1160.00, pro: 72.90, discount: 94, sold: 0, checkoutUrl: "https://pix-lite-checkout.lovable.app/pay-8" },
-    { credits: 900, official: 1305.00, pro: 81.90, discount: 94, sold: 0, checkoutUrl: "https://pix-lite-checkout.lovable.app/pay-9" },
-    { credits: 1000, official: 1450.00, pro: 89.90, discount: 94, sold: 0, checkoutUrl: "https://pix-lite-checkout.lovable.app/pay-10" },
-    { credits: 2000, official: 2900.00, pro: 176.90, discount: 94, sold: 0, checkoutUrl: "https://pix-lite-checkout.lovable.app/pay-11" },
-    { credits: 3000, official: 4350.00, pro: 265.90, discount: 94, sold: 0, checkoutUrl: "https://pix-lite-checkout.lovable.app/pay-12" },
-    { credits: 4000, official: 5800.00, pro: 353.90, discount: 94, sold: 0, checkoutUrl: "https://pix-lite-checkout.lovable.app/pay-13" },
-    { credits: 5000, official: 7250.00, pro: 439.90, discount: 94, sold: 0, checkoutUrl: "https://pix-lite-checkout.lovable.app/pay-14" },
+    { credits: 100, official: 145.00, pro: 9.90, discount: 93, sold: 56, firstPurchase: true, hot: true },
+    { credits: 200, official: 290.00, pro: 18.90, discount: 93, sold: 26, firstPurchase: true },
+    { credits: 300, official: 435.00, pro: 27.90, discount: 94, sold: 6 },
+    { credits: 400, official: 580.00, pro: 36.90, discount: 94, sold: 1 },
+    { credits: 500, official: 725.00, pro: 45.90, discount: 94, sold: 4 },
+    { credits: 600, official: 870.00, pro: 54.90, discount: 94, sold: 0 },
+    { credits: 700, official: 1015.00, pro: 63.90, discount: 94, sold: 0 },
+    { credits: 800, official: 1160.00, pro: 72.90, discount: 94, sold: 0 },
+    { credits: 900, official: 1305.00, pro: 81.90, discount: 94, sold: 0 },
+    { credits: 1000, official: 1450.00, pro: 89.90, discount: 94, sold: 0 },
+    { credits: 2000, official: 2900.00, pro: 176.90, discount: 94, sold: 0 },
+    { credits: 3000, official: 4350.00, pro: 265.90, discount: 94, sold: 0 },
+    { credits: 4000, official: 5800.00, pro: 353.90, discount: 94, sold: 0 },
+    { credits: 5000, official: 7250.00, pro: 439.90, discount: 94, sold: 0 },
   ];
+
+  const handleOpenCheckout = (credits: number, price: number) => {
+    setSelectedCredits(credits);
+    setSelectedPrice(price);
+    setCheckoutOpen(true);
+  };
 
   const handleContact = () => {
     window.open('https://wa.me/5511955784473?text=Olá!%20Tenho%20interesse%20nos%20créditos%20Lovable.', '_blank');
@@ -115,7 +126,7 @@ const AllPlans = () => {
                 </div>
 
                 <Button
-                  onClick={() => plan.checkoutUrl ? window.open(plan.checkoutUrl, '_blank') : handleContact()}
+                  onClick={() => handleOpenCheckout(plan.credits, plan.pro)}
                   className="w-full bg-gradient-to-r from-primary to-cyan-400 hover:opacity-90"
                 >
                   Comprar
@@ -189,7 +200,7 @@ const AllPlans = () => {
                         </div>
                       </TableCell>
                       <TableCell className="text-right">
-                        <Button onClick={() => plan.checkoutUrl && window.open(plan.checkoutUrl, '_blank')} size="sm">
+                        <Button onClick={() => handleOpenCheckout(plan.credits, plan.pro)} size="sm">
                           Comprar
                         </Button>
                       </TableCell>
@@ -229,6 +240,13 @@ const AllPlans = () => {
         </div>
       </div>
       <ChatWidget />
+      
+      <PixCheckout
+        isOpen={checkoutOpen}
+        onClose={() => setCheckoutOpen(false)}
+        credits={selectedCredits}
+        price={selectedPrice}
+      />
     </div>
   );
 };
