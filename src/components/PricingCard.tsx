@@ -1,7 +1,9 @@
+import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Check, Flame, Star, Zap } from "lucide-react";
 import heartIcon from "@/assets/heart-gradient.png";
+import PixCheckout from "./PixCheckout";
 
 interface PricingCardProps {
   credits: number;
@@ -28,6 +30,7 @@ const PricingCard = ({
   featured,
   checkoutUrl
 }: PricingCardProps) => {
+  const [isCheckoutOpen, setIsCheckoutOpen] = useState(false);
   const getBadgeContent = () => {
     switch (badge) {
       case "bestseller":
@@ -116,7 +119,7 @@ const PricingCard = ({
 
       {/* CTA */}
       <Button 
-        onClick={() => checkoutUrl && window.open(checkoutUrl, '_blank')}
+        onClick={() => setIsCheckoutOpen(true)}
         className={`w-full py-4 sm:py-6 text-base sm:text-lg font-semibold rounded-xl transition-all duration-300 ${
           featured
             ? "bg-gradient-to-r from-primary to-cyan-400 hover:opacity-90 text-white shadow-lg"
@@ -125,6 +128,13 @@ const PricingCard = ({
       >
         Selecionar
       </Button>
+
+      <PixCheckout
+        isOpen={isCheckoutOpen}
+        onClose={() => setIsCheckoutOpen(false)}
+        credits={credits}
+        price={proPrice}
+      />
     </div>
   );
 };
