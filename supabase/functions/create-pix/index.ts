@@ -23,7 +23,7 @@ const PRODUCT_MAP: Record<number, string> = {
   2000: "019b0967-22db-7370-94a7-3edb5a51dab4",
   3000: "019b0967-5d5e-7c40-93ee-6e104904b89e",
   4000: "019b0967-8654-7a18-b234-bc128e7826ab",
-  5000: "019b0964-f923-712b-b8e1-45bef4f3256f",
+  5000: "019b0967-a57e-71be-b8a8-e6627923d906",
 };
 
 serve(async (req) => {
