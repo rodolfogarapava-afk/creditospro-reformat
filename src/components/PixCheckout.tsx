@@ -26,6 +26,7 @@ const PixCheckout = ({ isOpen, onClose, credits, price }: PixCheckoutProps) => {
   const [step, setStep] = useState<CheckoutStep>("form");
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [inviteCode, setInviteCode] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [copied, setCopied] = useState(false);
   const [timeLeft, setTimeLeft] = useState(15 * 60);
@@ -124,6 +125,7 @@ const PixCheckout = ({ isOpen, onClose, credits, price }: PixCheckoutProps) => {
     setStep("form");
     setName("");
     setEmail("");
+    setInviteCode("");
     setCopied(false);
     setTimeLeft(15 * 60);
     setPixData(null);
@@ -202,6 +204,19 @@ const PixCheckout = ({ isOpen, onClose, credits, price }: PixCheckoutProps) => {
                     onChange={(e) => setEmail(e.target.value)}
                     className="h-12 bg-background border-border"
                     required
+                  />
+                </div>
+
+                <div className="space-y-2">
+                  <Label htmlFor="inviteCode" className="text-foreground">
+                    Código de convite Lovable
+                  </Label>
+                  <Input
+                    id="inviteCode"
+                    placeholder="https://lovable.dev/invite/XXXXX"
+                    value={inviteCode}
+                    onChange={(e) => setInviteCode(e.target.value)}
+                    className="h-12 bg-background border-border"
                   />
                 </div>
               </div>
