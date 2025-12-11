@@ -20,7 +20,7 @@ const AllPlansHeader = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <button onClick={() => navigate("/")} className="flex items-center gap-2 cursor-pointer">
-            <img alt="Créditos Fácil" className="h-10 md:h-12 w-auto" src="/lovable-uploads/4b8e2ec3-4446-44e8-90d2-618fcc289ebd.png" />
+            <span className="text-xl md:text-2xl font-bold text-foreground">Créditos Fácil</span>
           </button>
           
           {/* Desktop Navigation */}
