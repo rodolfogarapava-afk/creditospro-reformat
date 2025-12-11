@@ -26,8 +26,6 @@ const ChatWidget = () => {
     { label: "Como Funciona", action: "Como funciona o processo de compra?" },
   ];
 
-  const WHATSAPP_NUMBER = "5511955784473";
-  const WHATSAPP_MESSAGE = "Olá! Tenho uma dúvida sobre os créditos Lovable.";
 
   useEffect(() => {
     if (scrollAreaRef.current) {
@@ -36,11 +34,6 @@ const ChatWidget = () => {
   }, [messages]);
 
   const handleQuickAction = (action: string) => {
-    if (action === "whatsapp") {
-      window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`, "_blank");
-      return;
-    }
-    
     const userMessage: Message = { role: "user", content: action };
     setMessages(prev => [...prev, userMessage]);
     setIsLoading(true);
@@ -106,19 +99,8 @@ const ChatWidget = () => {
     
     processedContent = processedContent.replace(/\[BOTAO_PAGAMENTO:[^\]]+\]/gi, "");
 
-    // Detecta marcador de botão WhatsApp
-    if (processedContent.includes("[BOTAO_WHATSAPP]")) {
-      processedContent = processedContent.replace(/\[BOTAO_WHATSAPP\]/gi, "");
-      buttons.push(
-        <Button
-          key="whatsapp"
-          onClick={() => window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(WHATSAPP_MESSAGE)}`, "_blank")}
-          className="w-full bg-[#25D366] hover:bg-[#20BA5A] text-white font-semibold py-3 rounded-xl shadow-md"
-        >
-          📱 Clique aqui para falar no WhatsApp
-        </Button>
-      );
-    }
+    // Remove marcadores de WhatsApp se existirem
+    processedContent = processedContent.replace(/\[BOTAO_WHATSAPP\]/gi, "");
 
     processedContent = processedContent.replace(/\n{3,}/g, "\n\n").trim();
 

@@ -77,14 +77,6 @@ Q4: É seguro comprar créditos aqui?
 A: Sim! Utilizamos o sistema oficial de indicação da Lovable, 100% seguro.
 
 ═══════════════════════════════════════════════════
-📞 CONTATO E SUPORTE
-═══════════════════════════════════════════════════
-
-WhatsApp: +55 11 95578-4473
-
-Quando sugerir WhatsApp, use: [BOTAO_WHATSAPP]
-
-═══════════════════════════════════════════════════
 🛒 CHECKOUT DE PAGAMENTO
 ═══════════════════════════════════════════════════
 

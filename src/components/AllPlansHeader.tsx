@@ -15,9 +15,6 @@ const AllPlansHeader = () => {
       }
     }, 100);
   };
-  const handleChatClick = () => {
-    window.open('https://wa.me/5511955784473?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20os%20créditos%20Lovable.', '_blank');
-  };
   return <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-lg border-b border-border/50">
       <div className="container mx-auto px-4 py-2">
         <div className="flex items-center justify-between">
@@ -37,9 +34,6 @@ const AllPlansHeader = () => {
             <button onClick={() => scrollToSection('como-funciona')} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
               Como funciona
             </button>
-            <button onClick={handleChatClick} className="text-sm font-medium text-muted-foreground hover:text-foreground transition-colors">
-              Chat
-            </button>
           </nav>
 
           {/* Desktop CTA Button + Mobile Menu */}
@@ -49,7 +43,7 @@ const AllPlansHeader = () => {
             </Button>
             
             {/* Mobile Menu */}
-            <MobileMenu onNavigate={scrollToSection} onChatClick={handleChatClick} />
+            <MobileMenu onNavigate={scrollToSection} />
           </div>
         </div>
       </div>
