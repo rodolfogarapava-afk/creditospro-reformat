@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Clock, Flame } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import AllPlansHeader from "@/components/AllPlansHeader";
-import WhatsAppButton from "@/components/WhatsAppButton";
+
 import ChatWidget from "@/components/ChatWidget";
 import PixCheckout from "@/components/PixCheckout";
 import heartIcon from "@/assets/heart-gradient.png";
@@ -39,14 +39,11 @@ const AllPlans = () => {
     setCheckoutOpen(true);
   };
 
-  const handleContact = () => {
-    window.open('https://wa.me/5511955784473?text=Olá!%20Tenho%20interesse%20nos%20créditos%20Lovable.', '_blank');
-  };
 
   return (
     <div className="min-h-screen bg-background">
       <AllPlansHeader />
-      <WhatsAppButton />
+      
       
       <div className="pt-24 pb-16">
         <div className="container mx-auto px-4 py-8 md:py-12 lg:py-16">

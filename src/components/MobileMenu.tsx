@@ -4,19 +4,13 @@ import { Menu } from "lucide-react";
 import { useState } from "react";
 interface MobileMenuProps {
   onNavigate: (sectionId: string) => void;
-  onChatClick: () => void;
 }
 const MobileMenu = ({
-  onNavigate,
-  onChatClick
+  onNavigate
 }: MobileMenuProps) => {
   const [open, setOpen] = useState(false);
   const handleNavigation = (sectionId: string) => {
     onNavigate(sectionId);
-    setOpen(false);
-  };
-  const handleChat = () => {
-    onChatClick();
     setOpen(false);
   };
   return <Sheet open={open} onOpenChange={setOpen}>
@@ -40,9 +34,6 @@ const MobileMenu = ({
             </button>
             <button onClick={() => handleNavigation("como-funciona")} className="text-base font-normal text-foreground hover:text-primary transition-colors text-left py-2">
               Como funciona
-            </button>
-            <button onClick={handleChat} className="text-base font-normal text-foreground hover:text-primary transition-colors text-left py-2">
-              Chat
             </button>
             
             <Button onClick={() => handleNavigation("planos")} className="bg-gradient-to-r from-primary to-cyan-400 hover:opacity-90 text-white font-semibold px-6 py-4 rounded-xl w-full text-base mt-4">

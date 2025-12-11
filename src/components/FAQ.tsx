@@ -121,21 +121,6 @@ const FAQ = ({ limit }: FAQProps) => {
                 </Button>
               </div>
             )}
-            <p className="text-sm sm:text-base text-muted-foreground mb-4 px-4">
-              Ainda tem dúvidas? Estamos aqui para ajudar!
-            </p>
-            <a
-              href="https://wa.me/5511955784473?text=Olá!%20Tenho%20uma%20dúvida%20sobre%20os%20créditos%20Lovable."
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              <Button
-                size="lg"
-                className="bg-gradient-to-r from-primary to-cyan-400 hover:opacity-90 text-white font-semibold shadow-lg px-6 sm:px-8 py-4 sm:py-6 text-base sm:text-lg"
-              >
-                Falar com suporte
-              </Button>
-            </a>
           </div>
         </div>
       </div>
