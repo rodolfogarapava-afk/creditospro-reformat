@@ -16,7 +16,7 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <button onClick={() => scrollToSection('hero')} className="flex items-center gap-2 cursor-pointer">
-            <img alt="Créditos Fácil" className="h-10 md:h-12 w-auto" src="/lovable-uploads/baf2703d-6d97-4bec-97e3-77ca1ddb804b.png" />
+            <span className="text-xl md:text-2xl font-bold text-foreground">Créditos Fácil</span>
           </button>
           
           {/* Desktop Navigation */}
